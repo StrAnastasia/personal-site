@@ -1,0 +1,16 @@
+{
+  "name": "Anastasia Strygina",
+  "short_name": "Anastasia Strygina",
+  "icons": [
+    {
+      "src": "/logo150х150.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

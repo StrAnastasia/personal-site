@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import '../config';
+import Layout from 'shared/layout';
 
 interface AppLayoutProps {
   children: ReactNode;
@@ -8,5 +8,3 @@ interface AppLayoutProps {
 export const App: FC<AppLayoutProps> = ({ children }) => {
   return <Layout>{children}</Layout>;
 };
-
-const Layout: FC<AppLayoutProps> = ({ children }) => <span>{children}</span>;
