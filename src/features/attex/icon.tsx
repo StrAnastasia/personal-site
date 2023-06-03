@@ -1,13 +1,12 @@
 import { FC, useState } from 'react';
 import MainScreenIcon from 'shared/main-screen-icon';
-import MiniGame from '.';
+import Attex from '.';
 import asModal from 'shared/hooks/as-modal';
 import Image from 'next/image';
-import Logo from './game-components/images/logo.png';
 
-const MiniGameModal = asModal(MiniGame);
+const AttexModal = asModal(Attex);
 
-interface MiniGameIconProps {
+interface ExnodeIconProps {
   showDescription?: boolean;
   size?: string;
   footer?: boolean;
@@ -16,7 +15,7 @@ interface MiniGameIconProps {
   setClick: (a: string) => void;
 }
 
-const MiniGameIcon: FC<MiniGameIconProps> = ({
+const AttexIcon: FC<ExnodeIconProps> = ({
   showDescription = false,
   size = '',
   footer = false,
@@ -28,7 +27,7 @@ const MiniGameIcon: FC<MiniGameIconProps> = ({
 
   return (
     <>
-      <MiniGameModal title={'mini-game'} open={open} onClose={() => setOpen(false)} />
+      <AttexModal title={'Attex'} open={open} onClose={() => setOpen(false)} />
 
       <MainScreenIcon
         onDoubleClick={() => setOpen(true)}
@@ -38,13 +37,15 @@ const MiniGameIcon: FC<MiniGameIconProps> = ({
         size={size}
         icon={
           <Image
-            alt='mminigameLogo'
+            alt='attexImage'
             width={size === 'big' ? 40 : 30}
             height={size === 'big' ? 40 : 30}
-            src={Logo}
+            src={
+              '/favicon.ico'
+            }
           />
         }
-        description={'Mini-game'}
+        description={'Attex'}
         click={click}
         setClick={setClick}
       />
@@ -52,4 +53,4 @@ const MiniGameIcon: FC<MiniGameIconProps> = ({
   );
 };
 
-export default MiniGameIcon;
+export default AttexIcon;

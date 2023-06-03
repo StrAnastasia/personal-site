@@ -1,22 +1,77 @@
-import { FC } from 'react';
+import { FC, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import FooterButtonWrapper from 'shared/footer-button-wrapper';
+import { IconListSearch } from '@tabler/icons-react';
+import useGetFeatures, { FetureType } from 'shared/hooks/use-get-features';
 
-const Search: FC = () => {
+interface SearchProps {
+  click: string;
+  setClick: (a: string) => void;
+}
+
+const Search: FC<SearchProps> = (clickProps) => {
+  const features = useGetFeatures(clickProps);
+  const [filterString, setFilterString] = useState('');
+
+  function filterItems(el: FetureType) {
+    const adjustedFilterString = filterString
+      ?.replace(' ', '')
+      ?.replace('-', '')
+      ?.toLowerCase();
+    const adjustedLabel = el.label?.replace(' ', '')?.replace('-', '')?.toLowerCase();
+    return adjustedLabel.includes(adjustedFilterString);
+  }
+
+  const InputRef = useRef<HTMLInputElement>(null);
+
   return (
-    <FooterButtonWrapper>
-      <Icon />
-      <StyledInput placeholder='Search' />
-    </FooterButtonWrapper>
+    <RelativeComponent
+      onClick={() => {
+        clickProps?.setClick('search');
+        InputRef?.current?.focus();
+      }}
+    >
+      <MenuListWrapper opened={clickProps.click.includes('search')}>
+        {features.filter(filterItems).map(({ searchButton }, id) => (
+          <MenuListItem key={id}>{searchButton}</MenuListItem>
+        ))}
+      </MenuListWrapper>
+      <FooterButtonWrapper rightBorder>
+        <IconListSearch color='#785880' />
+        <StyledInput
+          ref={InputRef}
+          placeholder='Search'
+          value={filterString}
+          onChange={({ target }) => setFilterString(target?.value)}
+        />
+      </FooterButtonWrapper>
+    </RelativeComponent>
   );
 };
 
 export default Search;
 
-const Icon = styled.div`
-  background: #785880;
-  width: 24px;
-  height: 24px;
+const RelativeComponent = styled.div`
+  position: relative;
+`;
+
+const MenuListWrapper = styled.div<{ opened: boolean }>`
+  display: ${({ opened }) => (opened ? 'block' : 'none')};
+  position: absolute;
+
+  background: #c9acce;
+  border: #785880 solid 3px;
+  border-radius: 4px;
+  width: 305px;
+  height: 300px;
+  top: -300px;
+  left: -3px;
+  padding: 12px;
+`;
+
+const MenuListItem = styled.div`
+  display: flex;
+  border-bottom: rgb(120 88 128 / 50%) solid 3px;
 `;
 
 const StyledInput = styled.input`

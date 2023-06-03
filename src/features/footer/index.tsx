@@ -3,21 +3,34 @@ import styled from '@emotion/styled';
 import Search from './buttons/search';
 import OnOffButton from './buttons/on-off-button';
 import FooterButtonWrapper from 'shared/footer-button-wrapper';
-import MiniGameIcon from 'features/mini-game/icon';
+import useGetFeatures from 'shared/hooks/use-get-features';
+import Watch from './buttons/watch';
 
 interface FooterProps {
   click: string;
-  setClick: (a:  string) => void;
+  setClick: (a: string) => void;
+  turnOff: () => void;
 }
 
-const Footer: FC<FooterProps> = (iconProps) => {
+const Footer: FC<FooterProps> = (clickProps) => {
+  const features = useGetFeatures(clickProps);
+
   return (
     <BackGround>
-      <OnOffButton />
-      <Search />
-      <FooterButtonWrapper>
-        <MiniGameIcon footer {...iconProps} />
-      </FooterButtonWrapper>
+      <LeftSide>
+        <OnOffButton {...clickProps} />
+        <Search {...clickProps} />
+        {features?.map(({ footerIcon }, id) => (
+          <FooterButtonWrapper rightBorder key={id}>
+            {footerIcon}
+          </FooterButtonWrapper>
+        ))}
+      </LeftSide>
+      <RightSide>
+        <FooterButtonWrapper leftBorder>
+          <Watch />
+        </FooterButtonWrapper>
+      </RightSide>
     </BackGround>
   );
 };
@@ -32,4 +45,17 @@ const BackGround = styled.div`
   height: 60px;
   border-top: #785880 solid 3px;
   display: flex;
+  justify-content: space-between;
+`;
+
+const LeftSide = styled.div`
+  display: flex;
+`;
+
+const RightSide = styled.div`
+  display: flex;
+  align-items: center;
+  > div {
+    padding: 16px;
+  }
 `;

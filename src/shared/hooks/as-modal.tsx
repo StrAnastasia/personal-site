@@ -29,7 +29,9 @@ const Modal = memo(({ open, onClose, title, children }: AsModalProps) => {
                 setWindowSize={setWindowSize}
                 onClose={onClose}
               />
-              <div>{children}</div>
+              <div style={{height: "calc(100% - 32px)"}}>
+              {children}
+              </div>
             </ModalWrapper>
           </ModalGreatwrapper>,
           externalRef.current
@@ -96,7 +98,7 @@ const ModalHeader: FC<ModalHeaderPropd> = ({ onClose, setWindowSize, title }) =>
         >
           <IconSquare width={20} />
         </button>
-        <button onClick={onClose}>
+        <button onClick={onClose} className="cross">
           <IconX width={20} />
         </button>
       </div>
@@ -140,8 +142,7 @@ const ModalWrapper = styled.div<{ windowSize: string }>`
   border: #276039 2px solid;
   border-radius: 4px;
   width: ${({ windowSize }) => (windowSize === modalSizes?.small ? '50vw' : '100vw')};
-  height: ${({ windowSize }) => (windowSize === modalSizes?.small ? '70vh' : 'calc(100vh - 60px)')};
-  margin-bottom: ${({ windowSize }) => (windowSize === modalSizes?.small ? '0px' : '60px')};
+  height: ${({ windowSize }) => (windowSize === modalSizes?.small ? '70vh' : '100vh')};
   overflow: hidden;
 `;
 

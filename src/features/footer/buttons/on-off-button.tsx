@@ -1,16 +1,80 @@
-import { FC } from 'react';
+import { FC, ReactNode, useState } from 'react';
 import styled from '@emotion/styled';
 import FooterButtonWrapper from 'shared/footer-button-wrapper';
+import CVIcon from 'features/CV/icon';
+import OffSiteIcon from 'features/off-site/icon';
+import { IconInfoTriangle } from '@tabler/icons-react';
 
-const OnOffButton: FC = () => {
+interface OnOffButtonProps {
+  click: string;
+  setClick: (a: string) => void;
+  turnOff: () => void;
+}
+
+const OnOffButton: FC<OnOffButtonProps> = ({ click, setClick, turnOff }) => {
+  const [open, setOpen] = useState(false);
   return (
-    <FooterButtonWrapper>
-      <Icon />
-    </FooterButtonWrapper>
+    <>
+      <RelativeWrapper>
+        <List opened={click.includes('onoff')}>
+          <ListItem
+            clicked={click === 'onoffCV'}
+            onClick={() => setClick('onoffCV')}
+            onDoubleClick={() => setOpen(true)}
+          >
+            <CVIcon onOffMenu open={open} setOpen={setOpen} />
+          </ListItem>
+          <ListItem
+            clicked={click === 'onoffOFF'}
+            onClick={() => setClick('onoffOFF')}
+            onDoubleClick={turnOff}
+          >
+            <OffSiteIcon />
+          </ListItem>
+        </List>
+        <FooterButtonWrapper rightBorder onClick={() => setClick('onoff')}>
+          <IconInfoTriangle  color='#785880' />
+        </FooterButtonWrapper>
+      </RelativeWrapper>
+    </>
   );
 };
 
 export default OnOffButton;
+
+const RelativeWrapper = styled.div`
+  position: relative;
+`;
+
+const List = styled.ul<{ opened: boolean }>`
+  display: ${({ opened }) => (opened ? 'block' : 'none')};
+  position: absolute;
+
+  background: #c9acce;
+  border: #785880 solid 3px;
+  border-radius: 4px;
+  width: 305px;
+  height: 300px;
+  top: -300px;
+  left: 1px;
+  padding: 12px;
+  margin: 0px;
+  list-style-type: none;
+`;
+
+const ListItem = styled.li<{ clicked: boolean; children: ReactNode }>`
+  > div {
+    background: ${({ clicked }) => (clicked ? 'rgb(0 0 0 / 25%)' : 'transparent')};
+    display: flex;
+    align-items: center;
+    padding: 8px 0px;
+    border-bottom: rgb(120 88 128 / 50%) solid 3px;
+    cursor: pointer;
+  }
+  > div > svg {
+    margin-right: 8px;
+  }
+`;
 
 const Icon = styled.div`
   background: #785880;
