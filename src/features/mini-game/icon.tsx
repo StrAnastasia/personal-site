@@ -4,6 +4,7 @@ import MiniGame from '.';
 import asModal from 'shared/hooks/as-modal';
 import Image from 'next/image';
 import Logo from './game-components/images/logo.png';
+import { useTranslation } from 'react-i18next';
 
 const MiniGameModal = asModal(MiniGame);
 
@@ -25,10 +26,15 @@ const MiniGameIcon: FC<MiniGameIconProps> = ({
   setClick,
 }) => {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <>
-      <MiniGameModal title={'mini-game'} open={open} onClose={() => setOpen(false)} />
+      <MiniGameModal
+        title={t('miniGameLabel') || ''}
+        open={open}
+        onClose={() => setOpen(false)}
+      />
 
       <MainScreenIcon
         onDoubleClick={() => setOpen(true)}
@@ -44,7 +50,7 @@ const MiniGameIcon: FC<MiniGameIconProps> = ({
             src={Logo}
           />
         }
-        description={'Mini-game'}
+        description={t('miniGameLabel')}
         click={click}
         setClick={setClick}
       />

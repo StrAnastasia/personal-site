@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { App } from 'app/components';
+import { App } from 'app';
 import 'shared/styles/override.css';
 
 const Root = ({ Component, pageProps }: AppProps) => {

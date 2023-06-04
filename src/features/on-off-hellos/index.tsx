@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 
 interface OnOffHellosProps {
   isOn: boolean;
@@ -21,6 +22,8 @@ const OnOffHellos: FC<OnOffHellosProps> = ({
   firstTime,
   setFirstTime,
 }) => {
+  const { t } = useTranslation();
+
   let externalRef = useRef<HTMLElement>();
   useEffect(() => {
     externalRef.current = document.body;
@@ -78,7 +81,7 @@ const OnOffHellos: FC<OnOffHellosProps> = ({
 
       {externalRef.current &&
         createPortal(
-          <SecondHelloDiv hello={hello}>Добро пожаловать!</SecondHelloDiv>,
+          <SecondHelloDiv hello={hello}>{t("welcome")}</SecondHelloDiv>,
           externalRef.current
         )}
     </>

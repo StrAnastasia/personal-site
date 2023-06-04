@@ -5,6 +5,7 @@ import OnOffButton from './buttons/on-off-button';
 import FooterButtonWrapper from 'shared/footer-button-wrapper';
 import useGetFeatures from 'shared/hooks/use-get-features';
 import Watch from './buttons/watch';
+import Language from './buttons/language-component';
 
 interface FooterProps {
   click: string;
@@ -27,6 +28,9 @@ const Footer: FC<FooterProps> = (clickProps) => {
         ))}
       </LeftSide>
       <RightSide>
+        <FooterButtonWrapper leftBorder>
+          <Language {...clickProps} />
+        </FooterButtonWrapper>
         <FooterButtonWrapper leftBorder>
           <Watch />
         </FooterButtonWrapper>

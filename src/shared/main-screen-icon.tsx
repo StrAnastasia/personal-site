@@ -39,7 +39,7 @@ const MainScreenIcon: FC<MainScreenIconProps> = ({
         <PseudoImage size={size}>{icon}</PseudoImage>
         {showDescription && <Description>{description}</Description>}
       </Icon>
-      <Description>{search ? description : ''}</Description>
+      <Description search={search} >{search ? description : ''}</Description>
     </ClickableDiv>
   );
 };
@@ -54,7 +54,7 @@ const ClickableDiv = styled.div<{ clicked: boolean; search: boolean; footer: boo
   background: ${({ clicked }) => (clicked ? 'rgb(0 0 0 / 25%)' : 'transparent')};
   width: ${({search}) =>  search ? "100%" : "max-content"};
   padding: ${({ search, footer }) =>
-    search ? '8px 0px' : footer ? '10px 16px' : '24px 20px'};
+    search ? '8px 0px' : footer ? '10px 0px' : '24px 20px'};
   margin: ${({ footer, search }) => (footer || search ? '0px' : '0px 20px 9px 0px')};
   height: ${({ footer, search }) => (footer || search ? '90%' : 'max-content')};
 `;
@@ -77,9 +77,9 @@ const PseudoImage = styled.p<{ size: string }>`
   margin: 0px;
 `;
 
-const Description = styled.p`
+const Description = styled.p<{search?: boolean;}>`
   width: max-content;
   margin: 0px;
-  margin-top: 12px;
+  margin-top: ${({search}) => search ? "0px" : "12px"}; 
   font-size: 12px;
 `;

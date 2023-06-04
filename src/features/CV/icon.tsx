@@ -3,6 +3,7 @@ import CV from '.';
 import asModal from 'shared/hooks/as-modal';
 import { IconFileInfo } from '@tabler/icons-react';
 import MainScreenIcon from 'shared/main-screen-icon';
+import { useTranslation } from 'react-i18next';
 
 const CVModal = asModal(CV);
 
@@ -31,18 +32,20 @@ const CVIcon: FC<CVIconProps> = ({
   setClick = (f) => f,
 }) => {
   const [openFromOnOffMenu, setOpenFromOnOffMenu] = useState(false);
+  const { t } = useTranslation();
+
   return (
     <div>
       {onOffMenu ? (
         <>
           <CVModal title={'CV'} open={open || false} onClose={() => setOpen?.(false)} />
           <IconFileInfo color='#785880' />
-          Просмотреть резюме
+          {t('CheckCV')}
         </>
       ) : (
         <>
           <CVModal
-            title={'CV'}
+            title={t('CVLabel') || ''}
             open={openFromOnOffMenu || false}
             onClose={() => setOpenFromOnOffMenu?.(false)}
           />
@@ -53,7 +56,7 @@ const CVIcon: FC<CVIconProps> = ({
             showDescription={showDescription}
             size={size}
             icon={<IconFileInfo size={size === 'big' ? 40 : 30} color='#785880' />}
-            description={'CV'}
+            description={t('CVLabel') || ''}
             click={click || ''}
             setClick={setClick}
           />

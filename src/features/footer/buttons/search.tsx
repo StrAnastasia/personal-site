@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import FooterButtonWrapper from 'shared/footer-button-wrapper';
 import { IconListSearch } from '@tabler/icons-react';
 import useGetFeatures, { FetureType } from 'shared/hooks/use-get-features';
+import { useTranslation } from 'react-i18next';
 
 interface SearchProps {
   click: string;
@@ -12,6 +13,7 @@ interface SearchProps {
 const Search: FC<SearchProps> = (clickProps) => {
   const features = useGetFeatures(clickProps);
   const [filterString, setFilterString] = useState('');
+  const { t } = useTranslation();
 
   function filterItems(el: FetureType) {
     const adjustedFilterString = filterString
@@ -40,7 +42,7 @@ const Search: FC<SearchProps> = (clickProps) => {
         <IconListSearch color='#785880' />
         <StyledInput
           ref={InputRef}
-          placeholder='Search'
+          placeholder={t("search") || ""}
           value={filterString}
           onChange={({ target }) => setFilterString(target?.value)}
         />

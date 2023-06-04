@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Attex: FC = () => {
+  const { t } = useTranslation();
   return (
     <IframeWrapper>
       <iframe src='https://attex.io/welcome' title='attex' />
-      <Loading>Загрузка...</Loading>
+      <Loading>{t("loading")}...</Loading>
     </IframeWrapper>
   );
 };

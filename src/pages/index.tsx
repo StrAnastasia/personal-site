@@ -10,27 +10,15 @@ interface IndexProps {
 const Index: NextPage<IndexProps> = ({ click, setClick }) => {
   const features = useGetFeatures({ click, setClick });
   return (
-    <>
-      <Notification>добавь выбор языка!!!</Notification>
-      <Icons>
-        {features?.map(({ mainScreenIcon }, id) => (
-          <span key={id}>{mainScreenIcon}</span>
-        ))}
-      </Icons>
-    </>
+    <Icons>
+      {features?.map(({ mainScreenIcon }, id) => (
+        <span key={id}>{mainScreenIcon}</span>
+      ))}
+    </Icons>
   );
 };
 
 export default Index;
-
-const Notification = styled.div`
-  background: white;
-  position: absolute;
-  padding: 40px;
-
-  top: 300px;
-  right: 300px;
-`;
 
 const Icons = styled.div`
   padding: 12px;

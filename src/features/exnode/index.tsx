@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Exnode: FC = () => {
+  const { t } = useTranslation();
   return (
     <IframeWrapper>
       <iframe src='https://exnode.ru/' title='exnode' />
-      <Loading>Загрузка...</Loading>
+      <Loading>{t('loading')}...</Loading>{' '}
     </IframeWrapper>
   );
 };

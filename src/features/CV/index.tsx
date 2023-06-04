@@ -1,132 +1,113 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import photo from './IMG_9698.jpg';
-import "./cv.css"
+import './cv.css';
+import { useTranslation } from 'react-i18next';
 
 const CV: FC = () => {
-  const showPicture = true;
+  const { t, i18n } = useTranslation();
+
+  const showPicture = i18n.language === 'RUS';
+
   return (
     <CVWrapper>
       <RealPaddings className='noscrollbar'>
         <FlexDiv flex={showPicture}>
           <span>
-            <NameTitle>Strygina Anastasia, Frontend Developer</NameTitle>
-            <Title>E-mail: anastasia.s.front.dev@gmail.com</Title>
-            <Title>Phone: +998 94 044 74 01</Title>
-            <RedTitle>About myself</RedTitle>
+            <NameTitle>{t('CVName')}</NameTitle>
+            <Title>{t('CVEmail')}</Title>
+            <Title>{t('CVPhone')}</Title>
+            <RedTitle>{t('AboutMyselfTitle')}</RedTitle>
+            <Text>{t('AboutMyself')} </Text>
+            <BR two />
             <Text>
-              I’m a front-end developer with 3 years of experience writing in JS. I worked
-              both in start-ups and large companies, developed both small projects
-              (landing pages) and projects with complex architecture (bank applications),
-              and was also the lead of a small development team. I love IT for endless
-              opportunities to learn and develop as a specialist. Ready to communicate in
-              English.
-            </Text>
-            <br />
-            <br />
-            <Text>
-              Skills: JS, Typescript, React, Redux Toolkit, Next.js, SSR, react-query,
-              Mantine, Tailwind, Bootstrap, Styled Components, CSS, English - C1. Also
-              worked for a year according to Scrum (Jira).
+              <BoldText>{t('CVSkillsTitle')}</BoldText>
+              {t('MySkills')}
             </Text>
           </span>
           {showPicture && (
             <Image alt='myphoto' src={photo} width={384 / 1.5} height={576 / 1.5} />
           )}
         </FlexDiv>
-        <RedTitle>Work experience</RedTitle>
+        <RedTitle>{t('WorkExperienceTitle')}</RedTitle>
         <BoldText>
-          Black Wall Group, Moscow – frontend developer
-          <SmallText>(December 2021 - present)</SmallText>
+          {t('BWGJob')}
+          <SmallText>{t('BWGTime')}</SmallText>
         </BoldText>
-        <br />
-        <br />
+        <BR two />
         <Text>
-          Together with the team, we developed a crypto-exchange aggregator
-          (https://exnode.ru), it became popular in the field and the traffic was quite
-          high. We also finalized the draft version of the banking application
-          (https://attex.io/welcome), added many features and successfully launched the
-          project, which now has regular users.
+          <AddingLinks>{t('BWGExp')}</AddingLinks>
         </Text>
-        <br />
-        <br />
+        <BR two />
         <Text>
-          <BoldText>Stack:</BoldText> React, Redux toolkit, Next.js, SSR, Typescript,
-          react-query, hcaptcha, Mantine, Tailwind, Styled Components, CSS, axois, Scrum
-          methodologies (Trello and Jira)
+          <BoldText>{t('CVStackTitle')}</BoldText> {t('BWGStack')}
         </Text>
-        <br />
-        <br />
-        <br />
+        <BR three />
         <BoldText>
-          MyAppTop, Moscow – frontend developer{' '}
-          <SmallText>(November 2020 — December 2021)</SmallText>
+          {t('MATJob')}
+          <SmallText>{t('MATTime')}</SmallText>
         </BoldText>
-        <br />
-        <br />
+        <BR two />
+        <Text>{t('MATExp')}</Text>
+        <BR two />
         <Text>
-          Being the sole front-end developer, I was responsible for all the company's
-          websites and created a number of websites from scratch (several landing pages, a
-          site for buying ads for applications and sites and a web application for cloud
-          mining). I also hosted the sites on domains
+          <BoldText>{t('CVStackTitle')}</BoldText> {t('MATStack')}
         </Text>
-        <br />
-        <br />
-        <Text>
-          <BoldText>Stack:</BoldText> React, Redux toolkit, CSS, axois, email.js
-        </Text>
-        <br />
-        <br />
-        <br />
+        <BR three />
         <BoldText>
-          Elbrus Bootcamp, Moscow – fullstack developer
-          <SmallText>(May 2020 — November 2020)</SmallText>
+          {t('ElbJob')}
+          <SmallText>{t('ElbTime')}</SmallText>
         </BoldText>
-        <br />
-        <br />
-        <Text>During my studies, I implemented two projects:</Text>
-        <br />
-        <br />
+        <BR two />
+        <Text>{t('ElbStudyExpSubtitle')}</Text>
+        <BR  />
         <ol>
           <li>
-            <Text>
-              Aggregator of music concerts and events. In this project, I was the
-              ideological inspirer and team leader, I was responsible for the backend part
-              of the project. And also I wrote a mini-game in React from scratch
-            </Text>
-            <br />
-            <br />
+            <Text>{t('ElbStudyExpOne')}</Text>
+            <BR two />
           </li>
           <li>
-            <Text>
-              Application for introducing teenagers to different professions. In this
-              project, I was fully responsible for the backend and helped my colleagues
-              with the frontend part of the site
-            </Text>
+            <Text>{t('ElbStudyExpTwo')}</Text>
           </li>
         </ol>
-        <br />
-        <br />
+        <BR />
         <Text>
-          <BoldText>Stack:</BoldText> Express, Node.js, HBS, MongoDB, Bootstrap, Sessions
-          and Cookies, React, Redux Toolkit, CSS, Firebase, Google Map API, Passport, JWT
-          and Auth0, Photoshop 2020
+          <BoldText>{t('CVStackTitle')}</BoldText> {t('ElbStack')}
         </Text>
-        <br />
-        <br />
-        <Text>
-          After studying, I continued to work at the bootcamp online and offline, helping
-          other students with learning
-        </Text>
-        <br />
-        <br />
-        <br />
-        <RedTitle>Education</RedTitle>
-        August 2018 –November 2020 Moscow State Linguistic University – aldente-Bachelor
-        (Portuguese, English)
+        <BR two />
+        <Text>{t('ElbWorkExpSubtitle')}</Text>
+        <BR three />
+        <RedTitle>{t('EducationTitle')}</RedTitle>
+        {t('EducationInfo')}
       </RealPaddings>
     </CVWrapper>
+  );
+};
+
+const AddingLinks: FC<{ children: ReactNode }> = ({ children }) => {
+  const { t } = useTranslation();
+  const string = String(children);
+  const beforeLinks = string?.split(t('BWGLinkOne') || '')[0];
+  const betweenLinks = string
+    ?.split(t('BWGLinkOne') || '')[1]
+    .split(t('BWGLinkTwo') || '')[0];
+  const afterLinks = string
+    ?.split(t('BWGLinkOne') || '')[1]
+    .split(t('BWGLinkTwo') || '')[1];
+
+  return (
+    <>
+      {beforeLinks}
+      <a href={t('BWGLinkOne') || ''} target='_blank'>
+        {t('BWGLinkOne')}
+      </a>
+      {betweenLinks}
+      <a href={t('BWGLinkTwo') || ''} target='_blank'>
+        {t('BWGLinkTwo')}
+      </a>
+      {afterLinks}
+    </>
   );
 };
 
@@ -155,6 +136,16 @@ const FlexDiv = styled.div<{ flex: boolean }>`
     margin-left: 8px;
   }
 `;
+
+const BR: FC<{ two?: boolean; three?: boolean }> = ({ two = false, three = false }) => {
+  return (
+    <>
+      <br />
+      {two && <br />}
+      {three && <br />}
+    </>
+  );
+};
 
 const NameTitle = styled.h1``;
 
