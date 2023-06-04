@@ -7,6 +7,7 @@ import bubble3 from './images/bubble_3.png';
 import bubble4 from './images/bubble_4.png';
 import perspet from './images/SPRITESHEET_1_pet.png';
 import mirmoreput from './images/mirmore_put.png';
+import { useTranslation } from 'react-i18next';
 
 const InteractiveBubbles: FC<{
   setSprite: any;
@@ -25,6 +26,7 @@ const InteractiveBubbles: FC<{
   hideAllOrNot,
   visibleOrNot,
 }) => {
+  const { t } = useTranslation();
   const pixelsize = 2;
 
   const bubble2style = {
@@ -92,16 +94,17 @@ const InteractiveBubbles: FC<{
         <div
           style={{
             zIndex: '2',
-            position: 'absolute',
-            top: '1.8vh',
-            left: '2vw',
             fontWeight: 'bolder',
             fontFamily: 'var(--bs-font-sans-serif)',
-            padding: '6px 0px 0px 0px',
+            height: '100%',
+            padding: '20px 0px 20px 24px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}
         >
-          <div onClick={moneyfunc}>{'> бросить музыкантам монетку'}</div>
-          <div onClick={mayvisible}>{'> подпеть'}</div>
+          <div onClick={moneyfunc}>{t('MiniGameOptOne')}</div>
+          <div onClick={mayvisible}>{t('MiniGameOptTwo')}</div>
         </div>
         <div
           style={{
@@ -124,7 +127,7 @@ const InteractiveBubbles: FC<{
           }}
         >
           <div style={{}}>
-            <div>или лучше...</div>
+            <div>{t('MiniGameOptThree')}</div>
           </div>
         </div>
         <div
@@ -147,7 +150,7 @@ const InteractiveBubbles: FC<{
             alignItems: 'center',
           }}
         >
-          {`> выпить c музыкантами пенного`}
+          {t('MiniGameOptFour')}
         </div>
       </div>
     </>

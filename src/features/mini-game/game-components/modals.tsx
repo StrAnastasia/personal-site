@@ -2,11 +2,14 @@ import { FC } from 'react';
 import '../game.css';
 import bubble5 from './images/pixil-frame-0.png';
 import buttonpng from './images/button.png';
+import { useTranslation } from 'react-i18next';
+import styled from '@emotion/styled';
 
 const Modals: FC<{
   visibleOrNot: { [a: string]: string };
   reset: () => void;
 }> = ({ visibleOrNot, reset }) => {
+  const { t } = useTranslation();
   let pixelsize = 2;
 
   const modalstyle = {
@@ -37,9 +40,9 @@ const Modals: FC<{
             fontSize: '18px',
           }}
         >
-          распиваете в общественном месте?
+          {t('MiniGameFinOne')}
           <br />
-          вам штраф: улыбочка
+          {t('MiniGameFinTwo')}
         </div>
         <div style={{ display: 'flex', justifyContent: 'end' }}>
           <div
@@ -49,12 +52,12 @@ const Modals: FC<{
               height: '40px',
               backgroundImage: `url(${buttonpng.src})`,
               backgroundSize: '100% 100%',
-              padding: "4px 8px",
+              padding: '4px 8px',
               display: 'flex',
               alignItems: 'center',
             }}
           >
-            <div style={{ color: 'white' }}>начать заново</div>
+            <ButtonText>{t('MiniGameStartAgain')}</ButtonText>
           </div>
         </div>
       </div>
@@ -63,3 +66,9 @@ const Modals: FC<{
 };
 
 export default Modals;
+
+const ButtonText = styled.div`
+  color: white;
+  width: 100%;
+  text-align: center;
+`;

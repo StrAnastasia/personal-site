@@ -60,6 +60,14 @@ i18n.use(initReactI18next).init({
         EducationTitle: 'Education',
         EducationInfo:
           'August 2018 – November 2020 Moscow State Linguistic University – aldente-Bachelor (Portuguese, English)',
+
+        MiniGameOptOne: '> throw a coin',
+        MiniGameOptTwo: '> sing along',
+        MiniGameOptThree: 'or better...',
+        MiniGameOptFour: '> drink beer with them',
+        MiniGameFinOne: 'drinking in public?',
+        MiniGameFinTwo: "here's tour fine: a smile",
+        MiniGameStartAgain: 'start again',
       },
     },
     RUS: {
@@ -103,6 +111,14 @@ i18n.use(initReactI18next).init({
         EducationTitle: 'Образование',
         EducationInfo:
           'Август 2018 – Ноябрь 2020 Московский Государственный Лингвистический – альденте-бакалавр (португальский, английский)',
+
+        MiniGameOptOne: '> бросить музыкантам монетку',
+        MiniGameOptTwo: '> подпеть',
+        MiniGameOptThree: 'или лучше...',
+        MiniGameOptFour: '> выпить c музыкантами пенного',
+        MiniGameFinOne: 'распиваете в общественном месте?',
+        MiniGameFinTwo: ' вам штраф: улыбочка',
+        MiniGameStartAgain: 'начать заново',
       },
     },
   },
