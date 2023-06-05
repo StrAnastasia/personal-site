@@ -1,9 +1,19 @@
+html {
+  height: strech;
+  height: -webkit-strech;
+}
+
 body {
   margin: 0px;
   background-color: black;
+  min-height: 100vh;
+  min-height: strech;
+  min-height: -webkit-strech;
+
 }
 
 * {
   box-sizing: border-box;
   font-family: 'Comfortaa', cursive;
 }
+

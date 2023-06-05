@@ -1,5 +1,5 @@
 {
-  "name": "cb",
+  "name": "perssite",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,11 +10,8 @@
   "dependencies": {
     "@emotion/styled": "^11.11.0",
     "@next/font": "^13.2.4",
-    "@reduxjs/toolkit": "^1.9.5",
-    "@stoplight/elements": "^7.7.15",
     "@tabler/icons": "^2.20.0",
     "@tabler/icons-react": "^2.13.2",
-    "@tanstack/react-query": "^4.28.0",
     "eslint": "8.37.0",
     "eslint-config-next": "^13.2.4",
     "i18next": "^22.5.0",
@@ -24,7 +21,6 @@
     "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
     "react-i18next": "^12.3.1",
-    "react-redux": "^8.0.7",
     "typescript": "^5.0.3"
   },
   "devDependencies": {

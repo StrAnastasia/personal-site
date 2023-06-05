@@ -1,6 +1,4 @@
-import store from 'features/store';
 import { FC, ReactNode, useEffect } from 'react';
-import { Provider } from 'react-redux';
 import Layout from 'shared/layout';
 import './i18n';
 import { useTranslation } from 'react-i18next';
@@ -21,11 +19,9 @@ export const App: FC<AppLayoutProps> = ({ children }) => {
     } else {
       i18n.changeLanguage(storedLang);
     }
-  }, [store, i18n.language]);
+  }, [storedLang, i18n.language]);
 
   return (
-    <Provider store={store}>
       <Layout>{children}</Layout>
-    </Provider>
   );
 };

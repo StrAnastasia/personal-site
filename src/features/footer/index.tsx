@@ -4,7 +4,6 @@ import Search from './buttons/search';
 import OnOffButton from './buttons/on-off-button';
 import FooterButtonWrapper from 'shared/footer-button-wrapper';
 import useGetFeatures from 'shared/hooks/use-get-features';
-import Watch from './buttons/watch';
 import Language from './buttons/language-component';
 
 interface FooterProps {
@@ -41,6 +40,9 @@ const Footer: FC<FooterProps> = (clickProps) => {
 export default Footer;
 
 const BackGround = styled.div`
+  position: fixed;
+  bottom: 0;
+
   background: #c9acce;
   min-width: 100vw;
   width: 100vw;

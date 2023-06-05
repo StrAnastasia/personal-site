@@ -99,7 +99,5 @@ const BackGround = styled.div`
 
 const MainScreen = styled.div`
   width: 100%;
-  min-height: calc(100vh - 60px);
-  height: calc(100vh - 60px);
-  max-height: calc(100vh - 60px);
+  min-height: 100vh
 `;

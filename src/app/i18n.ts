@@ -69,7 +69,7 @@ i18n.use(initReactI18next).init({
         MiniGameOptThree: 'or better...',
         MiniGameOptFour: '> drink beer with them',
         MiniGameFinOne: 'drinking in public?',
-        MiniGameFinTwo: "here's tour fine: a smile",
+        MiniGameFinTwo: "here's our fine: a smile",
         MiniGameStartAgain: 'start again',
       },
     },

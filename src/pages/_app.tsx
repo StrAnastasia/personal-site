@@ -25,12 +25,6 @@ const Root = ({ Component, pageProps }: AppProps) => {
           name='viewport'
           content=' width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover'
         />
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' />
-        <link
-          href='https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap'
-          rel='stylesheet'
-        ></link>
       </Head>
       <App>
         <Component {...pageProps} />
