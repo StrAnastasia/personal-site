@@ -41,7 +41,7 @@ const AttexIcon: FC<ExnodeIconProps> = ({
             width={size === 'big' ? 40 : 30}
             height={size === 'big' ? 40 : 30}
             src={
-              '/favicon.ico'
+              '/Union.png'
             }
           />
         }
