@@ -40,9 +40,7 @@ const AttexIcon: FC<ExnodeIconProps> = ({
             alt='attexImage'
             width={size === 'big' ? 40 : 30}
             height={size === 'big' ? 40 : 30}
-            src={
-              '/Union.png'
-            }
+            src={'/Union.png'}
           />
         }
         description={'Attex'}
