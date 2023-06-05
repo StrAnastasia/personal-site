@@ -42,7 +42,7 @@ const Search: FC<SearchProps> = (clickProps) => {
         <IconListSearch color='#785880' />
         <StyledInput
           ref={InputRef}
-          placeholder={t("search") || ""}
+          placeholder={t('search') || ''}
           value={filterString}
           onChange={({ target }) => setFilterString(target?.value)}
         />
@@ -64,7 +64,7 @@ const MenuListWrapper = styled.div<{ opened: boolean }>`
   background: #c9acce;
   border: #785880 solid 3px;
   border-radius: 4px;
-  width: 305px;
+  width: calc(100% + 3px);
   height: 300px;
   top: -300px;
   left: -3px;
@@ -77,6 +77,7 @@ const MenuListItem = styled.div`
 `;
 
 const StyledInput = styled.input`
+  width: 10vw;
   outline: none;
   border: none;
   border-radius: 24px;
@@ -85,4 +86,7 @@ const StyledInput = styled.input`
   margin-left: 8px;
   font-size: 16px;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 30vw;
+  }
 `;

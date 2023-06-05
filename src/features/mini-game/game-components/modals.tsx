@@ -12,55 +12,20 @@ const Modals: FC<{
   const { t } = useTranslation();
   let pixelsize = 2;
 
-  const modalstyle = {
-    visibility: `${visibleOrNot.modalvis}`,
-    zIndex: '3',
-    backgroundSize: '100%',
-    backgroundImage: `url(${bubble5.src})`,
-    position: 'fixed',
-    width: `${pixelsize * 150}px`,
-    height: `${pixelsize * 108}px`,
-    top: '50%',
-    left: '50%',
-    transform: 'translateX(-50%) translateY(-50%)',
-    padding: '46px 16px 16px 16px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-  };
-
   return (
     <>
-      {/* @ts-ignore */}
-      <div style={{ ...modalstyle }}>
-        <div
-          style={{
-            fontWeight: 'bolder',
-            fontFamily: 'var(--bs-font-sans-serif)',
-            fontSize: '18px',
-          }}
-        >
+      <Modal visibility={visibleOrNot.modalvis} url={bubble5.src} pixelsize={pixelsize}>
+        <Text>
           {t('MiniGameFinOne')}
           <br />
           {t('MiniGameFinTwo')}
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'end' }}>
-          <div
-            onClick={reset}
-            style={{
-              width: '150px',
-              height: '40px',
-              backgroundImage: `url(${buttonpng.src})`,
-              backgroundSize: '100% 100%',
-              padding: '4px 8px',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
+        </Text>
+        <ButtonDiv>
+          <Button url={buttonpng.src} onClick={reset}>
             <ButtonText>{t('MiniGameStartAgain')}</ButtonText>
-          </div>
-        </div>
-      </div>
+          </Button>
+        </ButtonDiv>
+      </Modal>
     </>
   );
 };
@@ -71,4 +36,47 @@ const ButtonText = styled.div`
   color: white;
   width: 100%;
   text-align: center;
+`;
+
+const Modal = styled.div<{
+  visibility: string;
+  url: string;
+  pixelsize: number;
+}>`
+  visibility: ${({ visibility }) => visibility};
+  background-image: ${({ url }) => `url(${url})`};
+  width: ${({ pixelsize }) => `${pixelsize * 150}px`};
+  height: ${({ pixelsize }) => `${pixelsize * 108}px`};
+  z-index: 3;
+  background-size: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 46px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const Text = styled.div`
+  font-weight: bolder;
+  font-size: 18px;
+`;
+
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: end;
+`;
+
+const Button = styled.div<{
+  url: string;
+}>`
+  width: 150px;
+  height: 40px;
+  background-image: ${({ url }) => `url(${url})`};
+  background-size: 100% 100%;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
 `;

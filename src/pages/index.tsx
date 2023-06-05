@@ -31,4 +31,9 @@ const Icons = styled.div`
   > * {
     flex: 1 1 80px;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
 `;

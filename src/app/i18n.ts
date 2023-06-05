@@ -61,6 +61,9 @@ i18n.use(initReactI18next).init({
         EducationInfo:
           'August 2018 – November 2020 Moscow State Linguistic University – aldente-Bachelor (Portuguese, English)',
 
+        MiniGameSongOne: 'Feeling kinda like a snowlake...',
+        MiniGameSongTwo: 'in May!',
+
         MiniGameOptOne: '> throw a coin',
         MiniGameOptTwo: '> sing along',
         MiniGameOptThree: 'or better...',
@@ -112,6 +115,8 @@ i18n.use(initReactI18next).init({
         EducationInfo:
           'Август 2018 – Ноябрь 2020 Московский Государственный Лингвистический – альденте-бакалавр (португальский, английский)',
 
+        MiniGameSongOne: 'Чувствую себя как снежинка...',
+        MiniGameSongTwo: 'в мае!',
         MiniGameOptOne: '> бросить музыкантам монетку',
         MiniGameOptTwo: '> подпеть',
         MiniGameOptThree: 'или лучше...',

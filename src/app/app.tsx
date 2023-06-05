@@ -2,7 +2,7 @@ import store from 'features/store';
 import { FC, ReactNode, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import Layout from 'shared/layout';
-import './i18n.ts';
+import './i18n';
 import { useTranslation } from 'react-i18next';
 import { Cookie, cookies } from './cookie';
 

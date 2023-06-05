@@ -12,6 +12,7 @@ import Character from './game-components/character';
 import InteractiveBubbles from './game-components/interactive-bubbles';
 import Modals from './game-components/modals';
 import Loading from './game-components/loading';
+import styled from '@emotion/styled';
 
 const MiniGame: FC = () => {
   let pixelsize = 2;
@@ -30,6 +31,7 @@ const MiniGame: FC = () => {
   const [policemanState, setPolicemanState] = useState('-1000');
 
   const [isLoading, setIsLoading] = useState(true);
+  const [canClick, setCanClick] = useState(true);
 
   const [visibleOrNot, setVisibleOrNot] = useState<{
     [a: string]: string;
@@ -43,90 +45,70 @@ const MiniGame: FC = () => {
     vissneg: '',
   });
 
-  function hideAllOrNot(exceptions: string[] = [''], onlyAdd: boolean = false) {
+  function hideAllOrNot(exceptions: string[] = ['']) {
     const visFields: { [a: string]: string } = {};
     exceptions?.forEach((el) => (visFields[el] = ''));
-    let result = {};
 
-    if (onlyAdd) {
-      Object.entries(visibleOrNot)?.forEach(([key, value]) =>
-        value === '' ? (visFields[key] = '') : null
-      );
-      result = { ...visFields };
-    } else {
-      result = {
-        vis: 'hidden',
-        vismay: 'hidden',
-        visili: 'hidden',
-        vispivo: 'hidden',
-        vissneg: 'hidden',
-        moneyvis: 'hidden',
-        modalvis: 'hidden',
-        ...visFields,
-      };
-    }
-    setVisibleOrNot(result);
+    setVisibleOrNot({
+      vis: 'hidden',
+      vismay: 'hidden',
+      visili: 'hidden',
+      vispivo: 'hidden',
+      vissneg: 'hidden',
+      moneyvis: 'hidden',
+      modalvis: 'hidden',
+      ...visFields,
+    });
   }
 
-  const styleofallthegame = {
-    '--pixel-size': `${pixelsize}px`,
-    '--grid-cell': `${pixelsize * 16}px`,
-    '--bg': 'black',
-  };
-
-  const camerastyle = {
-    imageRendering: 'pixelated',
-    width: `${pixelsize * 320}px`,
-    height: `${pixelsize * 288}px`,
-    overflow: 'hidden',
-    background: 'lightgray',
-    position: 'relative',
-  };
+  var intervalIDOne: NodeJS.Timeout;
+  var intervalIDTwo: NodeJS.Timeout;
 
   function chooseaction() {
     if (visibleOrNot.vis === '') {
       hideAllOrNot(['vissneg']);
     } else {
-      hideAllOrNot(['vis', 'vissneg'], true);
-      setTimeout(() => {
-        hideAllOrNot(['visili'], true);
+      setCanClick(false);
+      hideAllOrNot(['vis', 'vissneg']);
+      intervalIDOne = setTimeout(() => {
+        hideAllOrNot(['vis', 'vissneg', 'visili']);
       }, 2000);
-      setTimeout(() => {
-        hideAllOrNot(['vispivo'], true);
+      intervalIDTwo = setTimeout(() => {
+        hideAllOrNot(['vis', 'vissneg', 'visili', 'vispivo']);
+        setCanClick(true);
       }, 3000);
     }
   }
 
-  const walkHandler = (e: any) => {
+  const walkHandler = (e: KeyboardEvent) => {
     e.stopPropagation();
+    setmirmorestate(mirmore);
+    setPolicemanState('-1000');
+    hideAllOrNot(['vissneg']);
     switch (e.keyCode) {
       case 65:
       case 37:
         setCharPos((prev) => ({ ...prev, fromLeft: prev.fromLeft - speed }));
         setMapPos((prev) => ({ ...prev, fromLeft: prev.fromLeft + speed }));
         setSprite(Pers13);
-        hideAllOrNot(['vissneg']);
         break;
       case 87:
       case 38:
         setCharPos((prev) => ({ ...prev, fromTop: prev.fromTop - speed }));
         setMapPos((prev) => ({ ...prev, fromTop: prev.fromTop + speed }));
         setSprite(Pers9);
-        hideAllOrNot(['vissneg']);
         break;
       case 68:
       case 39:
         setCharPos((prev) => ({ ...prev, fromLeft: prev.fromLeft + speed }));
         setMapPos((prev) => ({ ...prev, fromLeft: prev.fromLeft - speed }));
         setSprite(Pers5);
-        hideAllOrNot(['vissneg']);
         break;
       case 83:
       case 40:
         setCharPos((prev) => ({ ...prev, fromTop: prev.fromTop + speed }));
         setMapPos((prev) => ({ ...prev, fromTop: prev.fromTop - speed }));
         setSprite(Pers1);
-        hideAllOrNot(['vissneg']);
         break;
 
       default:
@@ -168,11 +150,9 @@ const MiniGame: FC = () => {
   return (
     <>
       <Loading isLoading={isLoading} setIsLoading={setIsLoading} />
-      {/* @ts-ignore */}
-      <div className='gamediv' style={{ ...styleofallthegame }}>
+      <div className='gamediv'>
         <Modals reset={reset} visibleOrNot={visibleOrNot} />
-        {/* @ts-ignore */}
-        <div className='camera' style={{ ...camerastyle }}>
+        <Camera pixelsize={pixelsize}>
           <Map fromTop={mapPos.fromTop} fromLeft={mapPos.fromLeft}>
             <MmAndSong
               chooseaction={chooseaction}
@@ -193,13 +173,25 @@ const MiniGame: FC = () => {
                 setPolicemanState={setPolicemanState}
                 hideAllOrNot={hideAllOrNot}
                 visibleOrNot={visibleOrNot}
+                canClick={canClick}
               />
             </Character>
           </Map>
-        </div>
+        </Camera>
       </div>
     </>
   );
 };
 
 export default MiniGame;
+
+const Camera = styled.div<{
+  pixelsize: number;
+}>`
+  image-rendering: pixelated;
+  width: ${({ pixelsize }) => `${pixelsize * 320}px`};
+  height: ${({ pixelsize }) => `${pixelsize * 288}px`};
+  overflow: hidden;
+  background: lightgray;
+  position: relative;
+`;

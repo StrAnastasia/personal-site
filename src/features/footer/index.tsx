@@ -21,18 +21,17 @@ const Footer: FC<FooterProps> = (clickProps) => {
       <LeftSide>
         <OnOffButton {...clickProps} />
         <Search {...clickProps} />
-        {features?.map(({ footerIcon }, id) => (
-          <FooterButtonWrapper rightBorder key={id}>
-            {footerIcon}
-          </FooterButtonWrapper>
-        ))}
+        <Icons>
+          {features?.map(({ footerIcon }, id) => (
+            <FooterButtonWrapper rightBorder key={id}>
+              {footerIcon}
+            </FooterButtonWrapper>
+          ))}
+        </Icons>
       </LeftSide>
       <RightSide>
         <FooterButtonWrapper leftBorder>
           <Language {...clickProps} />
-        </FooterButtonWrapper>
-        <FooterButtonWrapper leftBorder>
-          <Watch />
         </FooterButtonWrapper>
       </RightSide>
     </BackGround>
@@ -54,6 +53,13 @@ const BackGround = styled.div`
 
 const LeftSide = styled.div`
   display: flex;
+`;
+
+const Icons = styled.div`
+  display: flex;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const RightSide = styled.div`

@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import '../game.css';
 import { FC, ReactNode } from 'react';
 
@@ -9,32 +10,39 @@ const Character: FC<{
 }> = ({ children, fromTop, fromLeft, characterSprite }) => {
   const pixelsize = 2;
 
-  const wrapper = {
-    zIndex: 1,
-    width: pixelsize * 30 + 'px',
-    height: pixelsize * 30 + 'px',
-    position: 'absolute',
-  };
   const character = {
-    position: 'absolute',
-    backgroundImage: `url(${characterSprite})`,
-    backgroundSize: '100%',
-    width: pixelsize * 30 + 'px',
-    height: '77px',
     top: fromTop + 'px',
     left: fromLeft + 'px',
   };
 
   return (
     <>
-      {/* @ts-ignore */}
-      <div style={{ ...wrapper }}>
-        {/* @ts-ignore */}
-        <div style={{ ...character }} />
+      <CharWrapper pixelsize={pixelsize}>
+        <Char pixelsize={pixelsize} url={characterSprite} style={{ ...character }} />
         {children}
-      </div>
+      </CharWrapper>
     </>
   );
 };
 
 export default Character;
+
+const CharWrapper = styled.div<{
+  pixelsize: number;
+}>`
+  z-index: 1;
+  width: ${({ pixelsize }) => pixelsize * 30 + 'px'};
+  height: ${({ pixelsize }) => pixelsize * 30 + 'px'};
+  position: absolute;
+`;
+
+const Char = styled.div<{
+  pixelsize: number;
+  url: string;
+}>`
+  position: absolute;
+  background-image: ${({ url }) => `url(${url})`};
+  background-size: 100% 100%;
+  width: ${({ pixelsize }) => `${pixelsize * 30}px`};
+  height: 77px;
+`;

@@ -1,25 +1,37 @@
 import { FC } from 'react';
 import '../game.css';
 import policeman from './images/policeman.png';
+import styled from '@emotion/styled';
 
-const MisterPoliceman: FC<{ policemanState: any; fromTop: number }> = ({
+const MisterPoliceman: FC<{ policemanState: number; fromTop: number }> = ({
   policemanState,
   fromTop,
 }) => {
   const pixelsize = 2;
 
-  const policemanStyle = {
-    position: 'absolute',
-    backgroundImage: `url(${policeman.src})`,
-    backgroundSize: '100%',
-    width: `${pixelsize * 30}px`,
-    height: `77px`,
-    top: `${fromTop}px`,
-    left: `${policemanState}px`,
-  };
-
-  {/* @ts-ignore */}
-  return <div className='character_spritesheet pixel-art' style={policemanStyle}></div>;
+  return (
+    <PoliceMan
+      url={policeman.src}
+      pixelsize={pixelsize}
+      top={fromTop}
+      left={policemanState}
+    ></PoliceMan>
+  );
 };
 
 export default MisterPoliceman;
+
+const PoliceMan = styled.div<{
+  url: string;
+  pixelsize: number;
+  top: number;
+  left: number;
+}>`
+  position: absolute;
+  background-image: ${({ url }) => `url(${url})`};
+  width: ${({ pixelsize }) => `${pixelsize * 30}px`};
+  height: 77px;
+  background-size: 100%;
+  top: ${({ top }) => `${top}px`};
+  left: ${({ left }) => `${left}px`};
+`;

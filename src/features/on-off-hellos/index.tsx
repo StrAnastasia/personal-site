@@ -29,7 +29,7 @@ const OnOffHellos: FC<OnOffHellosProps> = ({
     externalRef.current = document.body;
   }, []);
 
-  function turnItOn(e: any) {
+  function turnItOn(e: KeyboardEvent) {
     e.stopPropagation();
     if (e.keyCode) {
       setTimeout(() => {

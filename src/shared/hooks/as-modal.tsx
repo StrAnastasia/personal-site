@@ -10,10 +10,9 @@ enum modalSizes {
 }
 
 const Modal = memo(({ open, onClose, title, children }: AsModalProps) => {
-  let ref = useRef<any>();
+  let ref = useRef<HTMLDivElement>(null);
   let externalRef = useRef<HTMLElement>();
   const [windowSize, setWindowSize] = useState(modalSizes?.small);
-  const [down, setDown] = useState(false);
   useEffect(() => {
     externalRef.current = document.body;
   }, []);
@@ -29,9 +28,7 @@ const Modal = memo(({ open, onClose, title, children }: AsModalProps) => {
                 setWindowSize={setWindowSize}
                 onClose={onClose}
               />
-              <div style={{height: "calc(100% - 32px)"}}>
-              {children}
-              </div>
+              <ModalBody>{children}</ModalBody>
             </ModalWrapper>
           </ModalGreatwrapper>,
           externalRef.current
@@ -77,7 +74,7 @@ export default asModal;
 
 interface ModalHeaderPropd {
   onClose: () => void;
-  setWindowSize: (a: (prev: any) => modalSizes) => void;
+  setWindowSize: (a: (prev: string) => modalSizes) => void;
   title: string;
 }
 
@@ -86,9 +83,9 @@ const ModalHeader: FC<ModalHeaderPropd> = ({ onClose, setWindowSize, title }) =>
     <ModalHeaderContainer>
       <p>{title}</p>
       <div>
-        <button>
+        <HideOnPhoneButton>
           <p>___</p>
-        </button>
+        </HideOnPhoneButton>
         <button
           onClick={() =>
             setWindowSize((prev) =>
@@ -98,7 +95,7 @@ const ModalHeader: FC<ModalHeaderPropd> = ({ onClose, setWindowSize, title }) =>
         >
           <IconSquare width={20} />
         </button>
-        <button onClick={onClose} className="cross">
+        <button onClick={onClose} className='cross'>
           <IconX width={20} />
         </button>
       </div>
@@ -129,6 +126,7 @@ const ModalHeaderContainer = styled.div`
     padding: 0px;
     p {
       font-weight: 600;
+      margin: 0px;
     }
   }
   > p {
@@ -137,13 +135,23 @@ const ModalHeaderContainer = styled.div`
   }
 `;
 
+const HideOnPhoneButton = styled.button`
+  @media (max-width: 765px) {
+    display: none !important; 
+  }
+`;
+
 const ModalWrapper = styled.div<{ windowSize: string }>`
   z-index: 40;
   border: #276039 2px solid;
   border-radius: 4px;
-  width: ${({ windowSize }) => (windowSize === modalSizes?.small ? '50vw' : '100vw')};
-  height: ${({ windowSize }) => (windowSize === modalSizes?.small ? '70vh' : '100vh')};
+  width: ${({ windowSize }) => (windowSize === modalSizes?.small ? '640px' : '100vw')};
+  height: ${({ windowSize }) => (windowSize === modalSizes?.small ? '576px' : '100vh')};
   overflow: hidden;
+  @media (max-width: 765px) {
+    width: ${({ windowSize }) => (windowSize === modalSizes?.small ? '90vw' : '100vw')};
+    height: ${({ windowSize }) => (windowSize === modalSizes?.small ? '60vh' : '100vh')};
+  }
 `;
 
 const ModalGreatwrapper = styled.div`
@@ -154,4 +162,9 @@ const ModalGreatwrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+`;
+
+const ModalBody = styled.div`
+  height: calc(100% - 32px);
+  overflow: hidden;
 `;

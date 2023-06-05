@@ -27,7 +27,9 @@ const CV: FC = () => {
             </Text>
           </span>
           {showPicture && (
-            <Image alt='myphoto' src={photo} width={384 / 1.5} height={576 / 1.5} />
+            <ImageBorder>
+              <Image alt='myphoto' src={photo} width={384 / 1.5} height={576 / 1.5} />
+            </ImageBorder>
           )}
         </FlexDiv>
         <RedTitle>{t('WorkExperienceTitle')}</RedTitle>
@@ -61,7 +63,7 @@ const CV: FC = () => {
         </BoldText>
         <BR two />
         <Text>{t('ElbStudyExpSubtitle')}</Text>
-        <BR  />
+        <BR />
         <ol>
           <li>
             <Text>{t('ElbStudyExpOne')}</Text>
@@ -146,6 +148,10 @@ const BR: FC<{ two?: boolean; three?: boolean }> = ({ two = false, three = false
     </>
   );
 };
+
+const ImageBorder = styled.div`
+  width: ""
+`
 
 const NameTitle = styled.h1``;
 
