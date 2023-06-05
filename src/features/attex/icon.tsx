@@ -3,6 +3,7 @@ import MainScreenIcon from 'shared/main-screen-icon';
 import Attex from '.';
 import asModal from 'shared/hooks/as-modal';
 import Image from 'next/image';
+import logo from './Union.png';
 
 const AttexModal = asModal(Attex);
 
@@ -40,7 +41,7 @@ const AttexIcon: FC<ExnodeIconProps> = ({
             alt='attexImage'
             width={size === 'big' ? 40 : 30}
             height={size === 'big' ? 40 : 30}
-            src={'/Union.png'}
+            src={logo}
           />
         }
         description={'Attex'}
