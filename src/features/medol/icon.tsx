@@ -1,13 +1,14 @@
 import { FC, useState } from 'react';
 import MainScreenIcon from 'shared/main-screen-icon';
-import Attex from '.';
+import Medol from '.';
 import asModal from 'shared/hooks/as-modal';
 import Image from 'next/image';
-import logo from './Union.png';
+import logo from './medol.png';
+import styled from '@emotion/styled';
 
-const AttexModal = asModal(Attex);
+const MedolModal = asModal(Medol);
 
-interface AttexIconProps {
+interface MedolIconProps {
   showDescription?: boolean;
   size?: string;
   footer?: boolean;
@@ -16,7 +17,7 @@ interface AttexIconProps {
   setClick: (a: string) => void;
 }
 
-const AttexIcon: FC<AttexIconProps> = ({
+const MedolIcon: FC<MedolIconProps> = ({
   showDescription = false,
   size = '',
   footer = false,
@@ -28,7 +29,7 @@ const AttexIcon: FC<AttexIconProps> = ({
 
   return (
     <>
-      <AttexModal title={'Attex'} open={open} onClose={() => setOpen(false)} />
+      <MedolModal bigger title={'Medol'} open={open} onClose={() => setOpen(false)} />
 
       <MainScreenIcon
         onDoubleClick={() => setOpen(true)}
@@ -37,14 +38,16 @@ const AttexIcon: FC<AttexIconProps> = ({
         showDescription={showDescription}
         size={size}
         icon={
-          <Image
-            alt='attexImage'
-            width={size === 'big' ? 40 : 30}
-            height={size === 'big' ? 40 : 30}
-            src={logo}
-          />
+          <ImageWrapper big={size === 'big'}>
+            <Image
+              alt='medolImage'
+              width={size === 'big' ? 180 : 120}
+              height={size === 'big' ? 40 : 30}
+              src={logo}
+            />
+          </ImageWrapper>
         }
-        description={'Attex'}
+        description={'Medol'}
         click={click}
         setClick={setClick}
       />
@@ -52,4 +55,9 @@ const AttexIcon: FC<AttexIconProps> = ({
   );
 };
 
-export default AttexIcon;
+export default MedolIcon;
+
+const ImageWrapper = styled.div<{ big: boolean }>`
+  width: ${(({big}) => big ? "80px" : "55px")};
+  overflow: hidden;
+`;

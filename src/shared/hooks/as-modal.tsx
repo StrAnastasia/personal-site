@@ -9,10 +9,10 @@ enum modalSizes {
   big = 'big',
 }
 
-const Modal = memo(({ open, onClose, title, children }: AsModalProps) => {
+const Modal = memo(({ open, onClose, title, bigger = false, children }: AsModalProps) => {
   let ref = useRef<HTMLDivElement>(null);
   let externalRef = useRef<HTMLElement>();
-  const [windowSize, setWindowSize] = useState(modalSizes?.small);
+  const [windowSize, setWindowSize] = useState(bigger ? modalSizes?.big : modalSizes?.small);
   useEffect(() => {
     externalRef.current = document.body;
   }, []);
@@ -41,6 +41,7 @@ interface AsModalProps {
   open: boolean;
   onClose: () => void;
   children?: ReactNode;
+  bigger?: boolean;
   title?: string;
   disableWrapper?: boolean;
   closeAfterOutsideClick?: boolean;
@@ -58,13 +59,14 @@ const asModal: (
   Component: FC
 ) => ({
   title,
+  bigger,
   open,
   onClose,
   children,
   disableWrapper,
 }: AsModalProps) => ReactElement = (Component: FC<ComponentProps>) => {
-  return ({ open, onClose, title, children, disableWrapper }) => (
-    <Modal {...{ open, onClose, title, disableWrapper }}>
+  return ({ open, onClose, title, bigger, children, disableWrapper }) => (
+    <Modal {...{ open, onClose, title, bigger, disableWrapper }}>
       <Component {...{ open, onClose }}>{children}</Component>
     </Modal>
   );

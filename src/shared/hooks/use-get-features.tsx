@@ -1,6 +1,7 @@
 import CVIcon from 'features/CV/icon';
 import AttexIcon from 'features/attex/icon';
 import ExnodeIcon from 'features/exnode/icon';
+import MedolIcon from 'features/medol/icon';
 import MiniGameIcon from 'features/mini-game/icon';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -44,6 +45,12 @@ const useGetFeatures: (a: UseGetFeaturesProps) => FetureType[] = (clickProps) =>
       footerIcon: <CVIcon footer {...clickProps} />,
       searchButton: <CVIcon search {...clickProps} />,
       label: t('CVLabel'),
+    },
+    {
+      mainScreenIcon: <MedolIcon showDescription size={'big'} {...clickProps} />,
+      footerIcon: <MedolIcon footer {...clickProps} />,
+      searchButton: <MedolIcon search {...clickProps} />,
+      label: 'Medol',
     },
   ];
 };
