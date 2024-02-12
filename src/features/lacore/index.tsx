@@ -2,17 +2,17 @@ import styled from '@emotion/styled';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const Attex: FC = () => {
+const Lacore: FC = () => {
   const { t } = useTranslation();
   return (
     <IframeWrapper>
-      <iframe src='https://attex.io/welcome' title='attex' />
-      <Loading>{t('loading')}...</Loading>
+      <iframe src='https://lacore.one/' title='lacore' />
+      <Loading>{t('loading')}...</Loading>{' '}
     </IframeWrapper>
   );
 };
 
-export default Attex;
+export default Lacore;
 
 const IframeWrapper = styled.div`
   position: relative;

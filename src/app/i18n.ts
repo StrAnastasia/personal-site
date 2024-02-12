@@ -25,11 +25,17 @@ i18n.use(initReactI18next).init({
         AboutMyselfTitle: 'About myself',
         AboutMyself:
           'I’m a front-end developer with 3 years of experience writing in JS. I worked both in start-ups and large companies, developed both small projects (landing pages) and projects with complex architecture (bank applications), and was also the lead of a small development team. I love IT for endless opportunities to learn and develop as a specialist. Ready to communicate in English.',
-        CVSkillsTitle: 'Skills: ',
+        // CVSkillsTitle: 'Skills: ',
         CVStackTitle: 'Stack: ',
-        MySkills:
-          'JS, Typescript, React, Redux Toolkit, Next.js, SSR, react-query, Mantine, Tailwind, Bootstrap, Styled Components, CSS, English - C1, Portuguese - B1. Also worked for a year according to Scrum (Jira).',
+        // MySkills:
+        // 'JS, Typescript, React, Redux Toolkit, Next.js, SSR, react-query, Mantine, Tailwind, Bootstrap, Styled Components, CSS, English - C1, Portuguese - B1. Also worked for a year according to Scrum (Jira).',
         WorkExperienceTitle: 'Work experience',
+        LacoreJob: 'Lacore, Tashkent – fullstack lead developer',
+        LacoreTime: '(June 2023 - current time)',
+        LacoreExp:
+          'In this company, two colleagues and I are developing a network of services with the aim of launching sales in the Russian market and improving the existing system in Uzbekistan. We managed to develop: micro-service for authorization in other services of the company, online store. In this projects, we worked together on the design system for this project, I developed the transport for processing requests, made the transport and the design system into nmp packages. I also integrated SMS, delivery and bank services, was engaged in research and choosing the latest technologies for the project, worked on layout and logic on the front, thought through the most of the database architecture and developed all the e-shop logic on the backend, and also taught an intern. In January 2024, I became the team-lead and head of the IT department. In addition to the previous responsibilities, I distributed tasks, estimated deadlines and discussed technical specifications of our product.',
+        LacoreStack: 'Typescript, React + Next.js, Effector, CSS, radix-ui, Nest.js, PostreSQL, Prisma, npm, Bitbucket + Jira',
+
         BWGJob: 'Black Wall Group, Moscow – frontend developer',
         BWGTime: '(December 2021 - June 2023)',
         BWGExp:
@@ -89,19 +95,27 @@ i18n.use(initReactI18next).init({
         CVPhone: 'Телефон: +998 94 044 74 01',
         AboutMyselfTitle: 'Обо мне',
         AboutMyself:
-          'Фронтенд разработчик с 3 годами опыта, пишу на JS. Работала как в стартапах, так и больших корпорациях, писала как небольшие проекты (лендинги), так и проекты со сложной архитектурой (банковские прилолжеиня), также была лидом небольшой команды разработчиков. Обожаю IT за бесконечные возможности учиться и развиваться как специалисту. Готова к коммуникации на английском.',
-        CVSkillsTitle: 'Навыки: ',
-        MySkills:
-          'JS, Typescript, React, Redux Tool Kit, Next.js, SSR, react-query, Mantine, Tailwind, Bootstrap, Styled Components, CSS, английский - C1, португальский - B1. Также год работала по методологии Scrum (Jira).',
+          'Фронтенд разработчик с 3 годами опыта, пишу на JS. Работала в компаниях разного масштаба, писала как небольшие одно-страничные проекты, так и проекты со сложной архитектурой (финтех и е-коммерс), была лидом небольшой команды, помогала джунам и пре-джунам с обучением, активно училась у старших всему, что могла. Обожаю IT за бесконечные возможности учиться и развиваться как специалисту. Готова к коммуникации на английском.',
+        // CVSkillsTitle: 'Навыки: ',
+        // MySkills:
+        // 'JS, Typescript, React, Redux Tool Kit, Next.js, SSR, react-query, Mantine, Tailwind, Bootstrap, Styled Components, CSS, radix-ui, Nest.js, PostreSQL, Prisma, npm, Bitbucket, SCRUM, Agile, английский - C1, португальский - B1.',
         WorkExperienceTitle: 'Work experience',
+        LacoreJob: 'Lacore, Ташкент – fullstack lead developer',
+        LacoreTime: '(Июнь 2023 - сейчас)',
+        LacoreExp:
+          'В этой компании мы с двумя коллегами развиваем сеть сервисов с целью запуска продаж на российском рынке и улучшения существующей системы в Узбекистане. Нам удалось разработать: микросервис для авторизации в других сервисах компании и интернет-магазин. В этом проекте мы вместе работали над дизайн-системой для этого проекта, я разработала транспорт для обработки запросов, превратила транспорт и систему дизайна в nmp-пакеты. Также я интегрировала СМС оповещение, доставку и банковские сервисы, занималась исследованиями и выбором новейших технологий для проекта, работала над версткой и логикой на фронте, продумывала большую часть архитектуры базы данных и разрабатывала всю логику интернет-магазина на бэкэнде, а также обучала стажером. В январе 2024 года я стала тимлидом и руководителем ИТ-отдела. Помимо предыдущих обязанностей, я распределяла задачи, оценивала сроки и обсуждала ТЗ для разработки.',
+        LacoreStack: 'Typescript, React + Next.js, Effector, CSS, radix-ui, Nest.js, PostreSQL, Prisma, npm, Bitbucket + Jira',
+        BWGJob: 'Black Wall Group, Москва – frontend developer',
         BWGTime: '(Декабрь 2021 - Июнь 2023)',
         BWGExp:
           'Вместе с командой разработали аггрегатор крипто-обменников (https://exnode.ru), благодаря работе с нашими маркетологами, на обоих сайтах повысилась посещаемость. А также мы доработали черновую версию банковского приложения (https://attex.io/welcome), успешно запустили проект, в котором теперь есть постоянные пользователи.',
         BWGStack:
           'React, Redux toolkit, Next.js, SSR, Typescript, react-query, hcaptcha, Mantine, Tailwind, Styled Components, CSS, axois, Scrum методологии (Trello and Jira).',
+        MATJob: 'MyAppTop, Москва – frontend developer',
         MATTime: '(Ноябрь 2020 — Декабрь 2021)',
         MATExp:
           'Будучи единственным фронтенд разработчиком, отвечала за все сайты компании создала с нуля ряд сайтов (несколько лендингов, сайт для покупки рекламы приложений и сайтов и веб-приложение для облачного майнинга). Вместе с командой создавали для приложений бек и дизайн. А также размещала сайты на доменах.',
+        ElbJob: 'Elbrus Bootcamp, Москва – fullstack developer',
         ElbTime: '(Май 2020 — Ноябрь 2020)',
         ElbStudyExpSubtitle: 'Во время учебы я реализовала два проекта:',
         ElbStudyExpOne:

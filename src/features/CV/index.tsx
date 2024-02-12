@@ -21,16 +21,27 @@ const CV: FC = () => {
             <RedTitle>{t('AboutMyselfTitle')}</RedTitle>
             <Text>{t('AboutMyself')} </Text>
             <BR two />
-            <Text>
+            {/* <Text>
               <BoldText>{t('CVSkillsTitle')}</BoldText>
               {t('MySkills')}
-            </Text>
+            </Text> */}
           </span>
           {showPicture && (
             <Image alt='myphoto' src={photo} width={384 / 1.5} height={576 / 1.5} />
           )}
         </FlexDiv>
         <RedTitle>{t('WorkExperienceTitle')}</RedTitle>
+        <BoldText>
+          {t('LacoreJob')}
+          <SmallText>{t('LacoreTime')}</SmallText>
+        </BoldText>
+        <BR two />
+        <Text>{t('LacoreExp')}</Text>
+        <BR two />
+        <Text>
+          <BoldText>{t('CVStackTitle')}</BoldText> {t('LacoreStack')}
+        </Text>
+        <BR two />
         <BoldText>
           {t('BWGJob')}
           <SmallText>{t('BWGTime')}</SmallText>

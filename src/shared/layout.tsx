@@ -6,6 +6,7 @@ import OnOffHellos from 'features/on-off-hellos';
 interface LayoutProps {
   children: ReactNode;
 }
+
 const Layout: FC<LayoutProps> = ({ children }) => {
   const [click, setClick] = useState('');
 
@@ -87,7 +88,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 export default Layout;
 
 const BackGround = styled.div`
-  background: #80c5c5;
+  background: #e8ebeb;
   min-width: 100vw;
   width: 100vw;
   max-width: 100vw;
@@ -99,5 +100,5 @@ const BackGround = styled.div`
 
 const MainScreen = styled.div`
   width: 100%;
-  min-height: 100vh
+  min-height: 100vh;
 `;

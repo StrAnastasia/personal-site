@@ -1,6 +1,7 @@
 import CVIcon from 'features/CV/icon';
 import AttexIcon from 'features/attex/icon';
 import ExnodeIcon from 'features/exnode/icon';
+import LacoreIcon from 'features/lacore/icon';
 import MedolIcon from 'features/medol/icon';
 import MiniGameIcon from 'features/mini-game/icon';
 import { ReactNode } from 'react';
@@ -51,6 +52,12 @@ const useGetFeatures: (a: UseGetFeaturesProps) => FetureType[] = (clickProps) =>
       footerIcon: <MedolIcon footer {...clickProps} />,
       searchButton: <MedolIcon search {...clickProps} />,
       label: 'Medol',
+    },
+    {
+      mainScreenIcon: <LacoreIcon showDescription size={'big'} {...clickProps} />,
+      footerIcon: <LacoreIcon footer {...clickProps} />,
+      searchButton: <LacoreIcon search {...clickProps} />,
+      label: 'Lac`core',
     },
   ];
 };

@@ -27,8 +27,8 @@ const Border = styled.div<{
   rightBorder: boolean;
   leftBorder: boolean;
 }>`
-  border-right: ${({ rightBorder }) => (rightBorder ? '#785880 solid 3px' : 'none')};
-  border-left: ${({ leftBorder }) => (leftBorder ? '#785880 solid 3px' : 'none')};
+  border-right: ${({ rightBorder }) => (rightBorder ? '#da6a00 solid 3px' : 'none')};
+  border-left: ${({ leftBorder }) => (leftBorder ? '#da6a00 solid 3px' : 'none')};
 
   width: max-content;
   height: 100%;

@@ -39,7 +39,7 @@ const Search: FC<SearchProps> = (clickProps) => {
         ))}
       </MenuListWrapper>
       <FooterButtonWrapper rightBorder>
-        <IconListSearch color='#785880' />
+        <IconListSearch color='#da6a00' />
         <StyledInput
           ref={InputRef}
           placeholder={t('search') || ''}
@@ -62,7 +62,7 @@ const MenuListWrapper = styled.div<{ opened: boolean }>`
   position: absolute;
 
   background: #c9acce;
-  border: #785880 solid 3px;
+  border: #da6a00 solid 3px;
   border-radius: 4px;
   width: calc(100% + 3px);
   height: 300px;

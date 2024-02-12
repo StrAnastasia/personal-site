@@ -12,7 +12,9 @@ enum modalSizes {
 const Modal = memo(({ open, onClose, title, bigger = false, children }: AsModalProps) => {
   let ref = useRef<HTMLDivElement>(null);
   let externalRef = useRef<HTMLElement>();
-  const [windowSize, setWindowSize] = useState(bigger ? modalSizes?.big : modalSizes?.small);
+  const [windowSize, setWindowSize] = useState(
+    bigger ? modalSizes?.big : modalSizes?.small
+  );
   useEffect(() => {
     externalRef.current = document.body;
   }, []);
@@ -89,6 +91,7 @@ const ModalHeader: FC<ModalHeaderPropd> = ({ onClose, setWindowSize, title }) =>
           <p>___</p>
         </HideOnPhoneButton>
         <button
+          disabled={title === "Medol"}
           onClick={() =>
             setWindowSize((prev) =>
               prev === modalSizes?.small ? modalSizes?.big : modalSizes?.small
@@ -106,12 +109,12 @@ const ModalHeader: FC<ModalHeaderPropd> = ({ onClose, setWindowSize, title }) =>
 };
 
 const ModalHeaderContainer = styled.div`
-  background: #cbd225;
+  background: #68904d;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: end;
-  border-bottom: #276039 2px solid;
+  border-bottom: #14471e 2px solid;
   > div {
     display: flex;
   }
@@ -121,7 +124,7 @@ const ModalHeaderContainer = styled.div`
     background: transparent;
     border: none;
     cursor: pointer;
-    border-left: #276039 2px solid;
+    border-left: #14471e 2px solid;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,18 +137,19 @@ const ModalHeaderContainer = styled.div`
   > p {
     margin: 0px;
     padding: 4px 0px 4px 4px;
+    font-weight: 700;
   }
 `;
 
 const HideOnPhoneButton = styled.button`
   @media (max-width: 768px) {
-    display: none !important; 
+    display: none !important;
   }
 `;
 
 const ModalWrapper = styled.div<{ windowSize: string }>`
   z-index: 40;
-  border: #276039 2px solid;
+  border: #14471e 2px solid;
   border-radius: 4px;
   width: ${({ windowSize }) => (windowSize === modalSizes?.small ? '640px' : '100vw')};
   height: ${({ windowSize }) => (windowSize === modalSizes?.small ? '576px' : '100vh')};
@@ -167,10 +171,12 @@ const ModalGreatwrapper = styled.div<{ windowSize: string }>`
   @media (max-width: 1024px) {
     top: ${({ windowSize }) => (windowSize === modalSizes?.small ? '50%' : '0')};
     left: ${({ windowSize }) => (windowSize === modalSizes?.small ? '50%' : '0')};
-    transform: ${({ windowSize }) => (windowSize === modalSizes?.small ? 'translateX(-50%) translateY(-50%);' : 'translateX(0%) translateY(0%);')};
+    transform: ${({ windowSize }) =>
+      windowSize === modalSizes?.small
+        ? 'translateX(-50%) translateY(-50%);'
+        : 'translateX(0%) translateY(0%);'};
     max-height: 100vh;
   }
-
 `;
 
 const ModalBody = styled.div`

@@ -33,7 +33,7 @@ const OnOffButton: FC<OnOffButtonProps> = ({ click, setClick, turnOff }) => {
           </ListItem>
         </List>
         <FooterButtonWrapper rightBorder onClick={() => setClick('onoff')}>
-          <IconInfoTriangle  color='#785880' />
+          <IconInfoTriangle  color='#da6a00' />
         </FooterButtonWrapper>
       </RelativeWrapper>
     </>
@@ -51,7 +51,7 @@ const List = styled.ul<{ opened: boolean }>`
   position: absolute;
 
   background: #c9acce;
-  border: #785880 solid 3px;
+  border: #da6a00 solid 3px;
   border-radius: 4px;
   width: 305px;
   height: 300px;
@@ -77,7 +77,7 @@ const ListItem = styled.li<{ clicked: boolean; children: ReactNode }>`
 `;
 
 const Icon = styled.div`
-  background: #785880;
+  background: #da6a00;
   width: 24px;
   height: 24px;
 `;
