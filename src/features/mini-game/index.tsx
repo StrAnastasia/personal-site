@@ -161,7 +161,7 @@ const MiniGame: FC = () => {
   }, [charPos.fromLeft, charPos.fromTop]);
 
   useEffect(() => {
-    if (window?.innerWidth < 765) setSpeed(42)
+    if (window?.innerWidth < 765) setSpeed(42);
   }, []);
 
   function reset() {
