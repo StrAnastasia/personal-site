@@ -24,8 +24,8 @@ const MiniGame: FC = () => {
     fromLeft: 0,
   });
   const [charPos, setCharPos] = useState({
-    fromTop: 0,
-    fromLeft: 0,
+    fromTop: 170,
+    fromLeft: 260,
   });
   const [spriteState, setSprite] = useState(Pers1);
   const [mirmorestate, setmirmorestate] = useState(mirmore);
