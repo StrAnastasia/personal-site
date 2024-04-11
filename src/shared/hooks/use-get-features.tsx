@@ -1,5 +1,4 @@
 import CVIcon from 'features/CV/icon';
-import AttexIcon from 'features/attex/icon';
 import ExnodeIcon from 'features/exnode/icon';
 import LacoreIcon from 'features/lacore/icon';
 import MedolIcon from 'features/medol/icon';
@@ -35,18 +34,12 @@ const useGetFeatures: (a: UseGetFeaturesProps) => FetureType[] = (clickProps) =>
       searchButton: <ExnodeIcon search {...clickProps} />,
       label: 'Exnode',
     },
-    {
-      mainScreenIcon: <AttexIcon showDescription size={'big'} {...clickProps} />,
-      footerIcon: <AttexIcon footer {...clickProps} />,
-      searchButton: <AttexIcon search {...clickProps} />,
-      label: 'Attex',
-    },
-    {
-      mainScreenIcon: <CVIcon showDescription size={'big'} {...clickProps} />,
-      footerIcon: <CVIcon footer {...clickProps} />,
-      searchButton: <CVIcon search {...clickProps} />,
-      label: t('CVLabel'),
-    },
+    // {
+    //   mainScreenIcon: <AttexIcon showDescription size={'big'} {...clickProps} />,
+    //   footerIcon: <AttexIcon footer {...clickProps} />,
+    //   searchButton: <AttexIcon search {...clickProps} />,
+    //   label: 'Attex',
+    // },
     {
       mainScreenIcon: <MedolIcon showDescription size={'big'} {...clickProps} />,
       footerIcon: <MedolIcon footer {...clickProps} />,
@@ -58,6 +51,12 @@ const useGetFeatures: (a: UseGetFeaturesProps) => FetureType[] = (clickProps) =>
       footerIcon: <LacoreIcon footer {...clickProps} />,
       searchButton: <LacoreIcon search {...clickProps} />,
       label: 'Lac`core',
+    },
+    {
+      mainScreenIcon: <CVIcon showDescription size={'big'} {...clickProps} />,
+      footerIcon: <CVIcon footer {...clickProps} />,
+      searchButton: <CVIcon search {...clickProps} />,
+      label: t('CVLabel'),
     },
   ];
 };

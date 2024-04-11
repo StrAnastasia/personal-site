@@ -36,6 +36,7 @@ const ButtonText = styled.div`
   color: white;
   width: 100%;
   text-align: center;
+  cursor: pointer;
 `;
 
 const Modal = styled.div<{

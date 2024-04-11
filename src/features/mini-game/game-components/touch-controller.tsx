@@ -10,6 +10,7 @@ import { FC } from 'react';
 const TouchController: FC<{
   walkHandler: (keyCode: number) => void;
 }> = ({ walkHandler }) => {
+
   return (
     <ControllerWrapper>
       <Button

@@ -65,10 +65,11 @@ const MenuListWrapper = styled.div<{ opened: boolean }>`
   border: #da6a00 solid 3px;
   border-radius: 4px;
   width: calc(100% + 3px);
-  height: 300px;
-  top: -300px;
+  height: 250px;
+  top: -250px;
   left: -3px;
   padding: 12px;
+  overflow: scroll;
 `;
 
 const MenuListItem = styled.div`

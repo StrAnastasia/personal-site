@@ -82,6 +82,7 @@ const InteractiveBubbles: FC<{
       <BubbleWrapper top={fromTop} left={fromLeft}>
         <BubbleOne pixelsize={pixelsize} url={bubble2.src} visibility={visibleOrNot.vis}>
           <div onClick={moneyfunc}>{t('MiniGameOptOne')}</div>
+          <br/>
           <div onClick={mayvisible}>{t('MiniGameOptTwo')}</div>
         </BubbleOne>
         <BubbleTwo visibility={visibleOrNot.visili} url={bubble4.src}>

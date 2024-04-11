@@ -161,14 +161,28 @@ const MiniGame: FC = () => {
   }, [charPos.fromLeft, charPos.fromTop]);
 
   useEffect(() => {
-    if (window?.innerWidth < 765) setSpeed(42);
+    if (window?.innerWidth < 765) {
+      setSpeed(10);
+      setCharPos({
+        fromTop: 100,
+        fromLeft: 60,
+      });
+    }
   }, []);
 
-  function reset() {
+  function reset() {    
     setIsLoading(true);
-    setTimeout(() => {
+    setTimeout(() => { 
+      if (window?.innerWidth < 765) {
+        setSpeed(10);
+        setCharPos({
+          fromTop: 100,
+          fromLeft: 60,
+        });
+      } else {
+        setCharPos({ fromTop: 170, fromLeft: 260 });
+      }
       setMapPos({ fromTop: 0, fromLeft: 0 });
-      setCharPos({ fromTop: 170, fromLeft: 260 });
       hideAllOrNot();
       setSprite(Pers1);
       setmirmorestate(mirmore);

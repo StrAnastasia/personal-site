@@ -6,8 +6,8 @@ const Attex: FC = () => {
   const { t } = useTranslation();
   return (
     <IframeWrapper>
-      <iframe src='https://attex.io/welcome' title='attex' />
-      <Loading>{t('loading')}...</Loading>
+      {/* <iframe src='https://aifory.io/' title='attex' /> */}
+      {/* <Loading>{t('loading')}...</Loading> */}
     </IframeWrapper>
   );
 };
