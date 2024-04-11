@@ -7,9 +7,6 @@ body {
   margin: 0px;
   background-color: black;
   min-height: 100vh;
-  min-height: strech;
-  min-height: -webkit-strech;
-
 }
 
 * {

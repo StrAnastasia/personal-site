@@ -5,46 +5,30 @@ import {
   IconArrowBigRight,
   IconArrowBigUp,
 } from '@tabler/icons-react';
-import { FC } from 'react';
+import { FC, TouchEvent, useCallback } from 'react';
 
 const TouchController: FC<{
   walkHandler: (keyCode: number) => void;
 }> = ({ walkHandler }) => {
+  const move = useCallback((e: TouchEvent<HTMLButtonElement>, keyNum: number) => {
+    e.stopPropagation();
+    walkHandler(keyNum);
+  }, []);
 
   return (
     <ControllerWrapper>
-      <Button
-        onTouchStart={(e) => {
-          e.stopPropagation();
-          walkHandler(38);
-        }}
-      >
+      <Button onTouchStart={(e) => move(e, 38)}>
         <IconArrowBigUp />
       </Button>
       <FlexDiv>
-        <Button
-          onTouchStart={(e) => {
-            e.stopPropagation();
-            walkHandler(37);
-          }}
-        >
+        <Button onTouchStart={(e) => move(e, 37)}>
           <IconArrowBigLeft />
         </Button>
-        <Button
-          onTouchStart={(e) => {
-            e.stopPropagation();
-            walkHandler(39);
-          }}
-        >
+        <Button onTouchStart={(e) => move(e, 39)}>
           <IconArrowBigRight />
         </Button>
       </FlexDiv>
-      <Button
-        onTouchStart={(e) => {
-          e.stopPropagation();
-          walkHandler(40);
-        }}
-      >
+      <Button onTouchStart={(e) => move(e, 40)}>
         <IconArrowBigDown />
       </Button>
     </ControllerWrapper>

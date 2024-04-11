@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import type { NextPage } from 'next';
+import { useEffect, useMemo, useState } from 'react';
 import useGetFeatures from 'shared/hooks/use-get-features';
 
 interface IndexProps {
@@ -9,9 +10,24 @@ interface IndexProps {
 
 const Index: NextPage<IndexProps> = ({ click, setClick }) => {
   const features = useGetFeatures({ click, setClick });
+
+  const [showMedol, setShowMedol] = useState(true);
+
+  const shownFeatures = useMemo(
+    () => features.filter((feature) => (showMedol ? true : feature.label !== 'Medol')),
+    [showMedol]
+  );
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < 1450 && showMedol) setShowMedol(false);
+      if (!showMedol) setShowMedol(true);
+    });
+  }, [showMedol]);
+
   return (
     <Icons>
-      {features?.map(({ mainScreenIcon }, id) => (
+      {shownFeatures?.map(({ mainScreenIcon }, id) => (
         <span key={id}>{mainScreenIcon}</span>
       ))}
     </Icons>
