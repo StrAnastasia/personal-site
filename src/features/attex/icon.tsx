@@ -4,19 +4,12 @@ import Attex from '.';
 import asModal from 'shared/hooks/as-modal';
 import Image from 'next/image';
 import logo from './Union.png';
+import { IconProps } from 'shared/hooks/use-get-features';
 
 const AttexModal = asModal(Attex);
 
-interface AttexIconProps {
-  showDescription?: boolean;
-  size?: string;
-  footer?: boolean;
-  search?: boolean;
-  click: string;
-  setClick: (a: string) => void;
-}
 
-const AttexIcon: FC<AttexIconProps> = ({
+const AttexIcon: FC<IconProps> = ({
   showDescription = false,
   size = '',
   footer = false,

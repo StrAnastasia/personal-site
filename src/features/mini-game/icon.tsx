@@ -5,19 +5,11 @@ import asModal from 'shared/hooks/as-modal';
 import Image from 'next/image';
 import Logo from './game-components/images/logo.png';
 import { useTranslation } from 'react-i18next';
+import { IconProps } from 'shared/hooks/use-get-features';
 
 const MiniGameModal = asModal(MiniGame);
 
-interface MiniGameIconProps {
-  showDescription?: boolean;
-  size?: string;
-  footer?: boolean;
-  search?: boolean;
-  click: string;
-  setClick: (a: string) => void;
-}
-
-const MiniGameIcon: FC<MiniGameIconProps> = ({
+const MiniGameIcon: FC<IconProps> = ({
   showDescription = false,
   size = '',
   footer = false,

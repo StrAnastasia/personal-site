@@ -5,19 +5,11 @@ import asModal from 'shared/hooks/as-modal';
 import Image from 'next/image';
 import logo from './medol.png';
 import styled from '@emotion/styled';
+import { IconProps } from 'shared/hooks/use-get-features';
 
 const MedolModal = asModal(Medol);
 
-interface MedolIconProps {
-  showDescription?: boolean;
-  size?: string;
-  footer?: boolean;
-  search?: boolean;
-  click: string;
-  setClick: (a: string) => void;
-}
-
-const MedolIcon: FC<MedolIconProps> = ({
+const MedolIcon: FC<IconProps> = ({
   showDescription = false,
   size = '',
   footer = false,

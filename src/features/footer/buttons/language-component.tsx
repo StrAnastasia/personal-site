@@ -2,13 +2,9 @@ import styled from '@emotion/styled';
 import { Cookie, cookies } from '../../../app/cookie';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ClickProps } from 'shared/hooks/use-get-features';
 
-interface LanguageProps {
-  click: string;
-  setClick: (a: string) => void;
-}
-
-const Language: FC<LanguageProps> = ({ click, setClick }) => {
+const Language: FC<ClickProps> = ({ click, setClick }) => {
   const { t, i18n } = useTranslation();
 
   const lngs = [

@@ -3,19 +3,11 @@ import MainScreenIcon from 'shared/main-screen-icon';
 import Lacore from '.';
 import asModal from 'shared/hooks/as-modal';
 import { LacoreLogoIcon } from './lacore-logo';
+import { IconProps } from 'shared/hooks/use-get-features';
 
 const LacoreModal = asModal(Lacore);
 
-interface LacoreIconProps {
-  showDescription?: boolean;
-  size?: string;
-  footer?: boolean;
-  search?: boolean;
-  click: string;
-  setClick: (a: string) => void;
-}
-
-const LacoreIcon: FC<LacoreIconProps> = ({
+const LacoreIcon: FC<IconProps> = ({
   showDescription = false,
   size = '',
   footer = false,

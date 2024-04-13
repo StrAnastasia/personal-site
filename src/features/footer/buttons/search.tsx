@@ -2,15 +2,10 @@ import { FC, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import FooterButtonWrapper from 'shared/footer-button-wrapper';
 import { IconListSearch } from '@tabler/icons-react';
-import useGetFeatures, { FetureType } from 'shared/hooks/use-get-features';
+import useGetFeatures, { ClickProps, FetureType } from 'shared/hooks/use-get-features';
 import { useTranslation } from 'react-i18next';
 
-interface SearchProps {
-  click: string;
-  setClick: (a: string) => void;
-}
-
-const Search: FC<SearchProps> = (clickProps) => {
+const Search: FC<ClickProps> = (clickProps) => {
   const features = useGetFeatures(clickProps);
   const [filterString, setFilterString] = useState('');
   const { t } = useTranslation();

@@ -4,10 +4,9 @@ import FooterButtonWrapper from 'shared/footer-button-wrapper';
 import CVIcon from 'features/CV/icon';
 import OffSiteIcon from 'features/off-site/icon';
 import { IconInfoTriangle } from '@tabler/icons-react';
+import { ClickProps } from 'shared/hooks/use-get-features';
 
-interface OnOffButtonProps {
-  click: string;
-  setClick: (a: string) => void;
+interface OnOffButtonProps extends ClickProps {
   turnOff: () => void;
 }
 
@@ -33,7 +32,7 @@ const OnOffButton: FC<OnOffButtonProps> = ({ click, setClick, turnOff }) => {
           </ListItem>
         </List>
         <FooterButtonWrapper rightBorder onClick={() => setClick('onoff')}>
-          <IconInfoTriangle  color='#da6a00' />
+          <IconInfoTriangle color='#da6a00' />
         </FooterButtonWrapper>
       </RelativeWrapper>
     </>

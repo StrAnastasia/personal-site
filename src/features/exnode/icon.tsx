@@ -3,19 +3,11 @@ import MainScreenIcon from 'shared/main-screen-icon';
 import Exnode from '.';
 import asModal from 'shared/hooks/as-modal';
 import Image from 'next/image';
+import { IconProps } from 'shared/hooks/use-get-features';
 
 const ExnodeModal = asModal(Exnode);
 
-interface ExnodeIconProps {
-  showDescription?: boolean;
-  size?: string;
-  footer?: boolean;
-  search?: boolean;
-  click: string;
-  setClick: (a: string) => void;
-}
-
-const ExnodeIcon: FC<ExnodeIconProps> = ({
+const ExnodeIcon: FC<IconProps> = ({
   showDescription = false,
   size = '',
   footer = false,

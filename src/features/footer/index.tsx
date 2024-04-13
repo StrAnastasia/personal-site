@@ -3,12 +3,10 @@ import styled from '@emotion/styled';
 import Search from './buttons/search';
 import OnOffButton from './buttons/on-off-button';
 import FooterButtonWrapper from 'shared/footer-button-wrapper';
-import useGetFeatures from 'shared/hooks/use-get-features';
+import useGetFeatures, { ClickProps } from 'shared/hooks/use-get-features';
 import Language from './buttons/language-component';
 
-interface FooterProps {
-  click: string;
-  setClick: (a: string) => void;
+interface FooterProps extends ClickProps {
   turnOff: () => void;
 }
 
