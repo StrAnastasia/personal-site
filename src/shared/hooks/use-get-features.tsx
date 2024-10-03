@@ -1,3 +1,4 @@
+import AiforyIcon from 'features/aifory/icon';
 import CVIcon from 'features/CV/icon';
 import ExnodeIcon from 'features/exnode/icon';
 import LacoreIcon from 'features/lacore/icon';
@@ -18,14 +19,14 @@ export interface IconProps extends ClickProps {
   search?: boolean;
 }
 
-export interface FetureType {
+export interface FeatureType {
   mainScreenIcon: ReactNode;
   footerIcon: ReactNode;
   searchButton: ReactNode;
   label: string;
 }
 
-const useGetFeatures: (a: ClickProps) => FetureType[] = (clickProps) => {
+const useGetFeatures: (a: ClickProps) => FeatureType[] = (clickProps) => {
   const { t } = useTranslation();
 
   const features = useMemo(
@@ -42,12 +43,12 @@ const useGetFeatures: (a: ClickProps) => FetureType[] = (clickProps) => {
         searchButton: <ExnodeIcon search {...clickProps} />,
         label: 'Exnode',
       },
-      // {
-      //   mainScreenIcon: <AttexIcon showDescription size={'big'} {...clickProps} />,
-      //   footerIcon: <AttexIcon footer {...clickProps} />,
-      //   searchButton: <AttexIcon search {...clickProps} />,
-      //   label: 'Attex',
-      // },
+      {
+        mainScreenIcon: <AiforyIcon showDescription size={'big'} {...clickProps} />,
+        footerIcon: <AiforyIcon footer {...clickProps} />,
+        searchButton: <AiforyIcon search {...clickProps} />,
+        label: 'Aifory',
+      },
       {
         mainScreenIcon: <MedolIcon showDescription size={'big'} {...clickProps} />,
         footerIcon: <MedolIcon footer {...clickProps} />,

@@ -88,7 +88,8 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 export default Layout;
 
 const BackGround = styled.div`
-  background: #e8ebeb;
+  background: white;
+  /* background: #e8ebeb; */
   min-width: 100vw;
   width: 100vw;
   max-width: 100vw;

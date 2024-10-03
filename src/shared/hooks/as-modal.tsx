@@ -83,6 +83,11 @@ interface ModalHeaderPropd {
 }
 
 const ModalHeader: FC<ModalHeaderPropd> = ({ onClose, setWindowSize, title }) => {
+  useEffect(() => {
+    if (title === 'Medol') setWindowSize(() => modalSizes.big)
+
+    return () => setWindowSize(() => modalSizes.small);
+  }, []);
   return (
     <ModalHeaderContainer>
       <p>{title}</p>
@@ -91,7 +96,7 @@ const ModalHeader: FC<ModalHeaderPropd> = ({ onClose, setWindowSize, title }) =>
           <p>___</p>
         </HideOnPhoneButton>
         <button
-          disabled={title === "Medol"}
+          disabled={title === 'Medol'}
           onClick={() =>
             setWindowSize((prev) =>
               prev === modalSizes?.small ? modalSizes?.big : modalSizes?.small
@@ -109,12 +114,14 @@ const ModalHeader: FC<ModalHeaderPropd> = ({ onClose, setWindowSize, title }) =>
 };
 
 const ModalHeaderContainer = styled.div`
-  background: #68904d;
+  background: white;
+  /* background: #68904d; */
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: end;
-  border-bottom: #14471e 2px solid;
+  border-bottom: black 2px solid;
+  /* border-bottom: #14471e 2px solid; */
   > div {
     display: flex;
   }
@@ -124,7 +131,8 @@ const ModalHeaderContainer = styled.div`
     background: transparent;
     border: none;
     cursor: pointer;
-    border-left: #14471e 2px solid;
+    border-left: black 2px solid;
+    /* border-left: #14471e 2px solid; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,14 +157,17 @@ const HideOnPhoneButton = styled.button`
 
 const ModalWrapper = styled.div<{ windowSize: string }>`
   z-index: 40;
-  border: #14471e 2px solid;
-  border-radius: 4px;
+  border: black 2px solid;
+  // border: #14471e 2px solid;
+  border-radius: ${({ windowSize }) => (windowSize === modalSizes?.small ? '4px' : '0')};
   width: ${({ windowSize }) => (windowSize === modalSizes?.small ? '640px' : '100vw')};
-  height: ${({ windowSize }) => (windowSize === modalSizes?.small ? '576px' : '100vh')};
+  height: ${({ windowSize }) =>
+    windowSize === modalSizes?.small ? '576px' : 'calc(100vh - 58px)'};
   overflow: hidden;
   @media (max-width: 768px) {
     width: ${({ windowSize }) => (windowSize === modalSizes?.small ? '90vw' : '100vw')};
-    height: ${({ windowSize }) => (windowSize === modalSizes?.small ? '60vh' : '100vh')};
+    height: ${({ windowSize }) =>
+      windowSize === modalSizes?.small ? '60vh' : 'calc(100vh - 58px)'};
   }
 `;
 
@@ -165,9 +176,13 @@ const ModalGreatwrapper = styled.div<{ windowSize: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 50%;
+  top: ${({ windowSize }) => (windowSize === modalSizes?.small ? '50%' : '0')};
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: ${({ windowSize }) =>
+    windowSize === modalSizes?.small
+      ? 'translateX(-50%) translateY(-50%)'
+      : 'translateX(-50%) translateY(0)'};
+
   @media (max-width: 1024px) {
     top: ${({ windowSize }) => (windowSize === modalSizes?.small ? '50%' : '0')};
     left: ${({ windowSize }) => (windowSize === modalSizes?.small ? '50%' : '0')};

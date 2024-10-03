@@ -2,17 +2,17 @@ import styled from '@emotion/styled';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const Attex: FC = () => {
+const Aifory: FC = () => {
   const { t } = useTranslation();
   return (
     <IframeWrapper>
-      {/* <iframe src='https://aifory.io/' title='attex' /> */}
-      {/* <Loading>{t('loading')}...</Loading> */}
+      <iframe src='https://aifory.pro/#start' title='aifory' />
+      <Loading>{t('loading')}...</Loading>
     </IframeWrapper>
   );
 };
 
-export default Attex;
+export default Aifory;
 
 const IframeWrapper = styled.div`
   position: relative;

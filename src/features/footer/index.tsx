@@ -41,12 +41,14 @@ const BackGround = styled.div`
   position: fixed;
   bottom: 0;
 
-  background: #ffb52b;
+  background: white;
+  /* background: #ffb52b; */
   min-width: 100vw;
   width: 100vw;
   max-width: 100vw;
   height: 60px;
-  border-top: #da6a00 solid 3px;
+  border: black solid 2px;
+  /* border-top: #da6a00 solid 2px; */
   display: flex;
   justify-content: space-between;
 `;

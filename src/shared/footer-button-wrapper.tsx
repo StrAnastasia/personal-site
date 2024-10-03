@@ -27,8 +27,10 @@ const Border = styled.div<{
   rightBorder: boolean;
   leftBorder: boolean;
 }>`
-  border-right: ${({ rightBorder }) => (rightBorder ? '#da6a00 solid 3px' : 'none')};
-  border-left: ${({ leftBorder }) => (leftBorder ? '#da6a00 solid 3px' : 'none')};
+  border-right: ${({ rightBorder }) => (rightBorder ? 'black solid 2px' : 'none')};
+  // border-right: ${({ rightBorder }) => (rightBorder ? '#da6a00 solid 2px' : 'none')};
+  border-left: ${({ leftBorder }) => (leftBorder ? 'black solid 2px' : 'none')};
+  // border-left: ${({ leftBorder }) => (leftBorder ? '#da6a00 solid 2px' : 'none')};
 
   width: max-content;
   height: 100%;

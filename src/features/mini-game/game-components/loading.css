@@ -2,7 +2,7 @@
   background: #222;
   text-align: center;
   position: absolute;
-  width: calc(100% - 3px);
+  width: calc(100% - 2px);
   height: calc(100% - 36px);
   transition: 0.5s;
 }

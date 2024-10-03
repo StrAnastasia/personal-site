@@ -17,7 +17,8 @@ export default Lacore;
 const IframeWrapper = styled.div`
   position: relative;
   height: 100%;
-  background: #222;
+  background: white;
+  /* background: #222; */
   > iframe {
     border: none;
     width: 100%;

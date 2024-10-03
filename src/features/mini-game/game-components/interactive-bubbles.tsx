@@ -82,7 +82,6 @@ const InteractiveBubbles: FC<{
       <BubbleWrapper top={fromTop} left={fromLeft}>
         <BubbleOne pixelsize={pixelsize} url={bubble2.src} visibility={visibleOrNot.vis}>
           <div onClick={moneyfunc}>{t('MiniGameOptOne')}</div>
-          <br/>
           <div onClick={mayvisible}>{t('MiniGameOptTwo')}</div>
         </BubbleOne>
         <BubbleTwo visibility={visibleOrNot.visili} url={bubble4.src}>
@@ -147,7 +146,7 @@ const BubbleOne = styled.div<{
   background-size: 100% 100%;
   z-index: 2;
   font-weight: bolder;
-  padding: 20px 0px 20px 24px;
+  padding: 24px 0px 20px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;

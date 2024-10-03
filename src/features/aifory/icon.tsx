@@ -1,15 +1,15 @@
 import { FC, useState } from 'react';
 import MainScreenIcon from 'shared/main-screen-icon';
-import Attex from '.';
+import Aifory from '.';
 import asModal from 'shared/hooks/as-modal';
 import Image from 'next/image';
-import logo from './Union.png';
+import logo from './aifory.favicon.png';
 import { IconProps } from 'shared/hooks/use-get-features';
 
-const AttexModal = asModal(Attex);
+const AiforyModal = asModal(Aifory);
 
 
-const AttexIcon: FC<IconProps> = ({
+const AiforyIcon: FC<IconProps> = ({
   showDescription = false,
   size = '',
   footer = false,
@@ -21,7 +21,7 @@ const AttexIcon: FC<IconProps> = ({
 
   return (
     <>
-      <AttexModal title={'Attex'} open={open} onClose={() => setOpen(false)} />
+      <AiforyModal title={'Aifory'} open={open} onClose={() => setOpen(false)} />
 
       <MainScreenIcon
         onDoubleClick={() => setOpen(true)}
@@ -31,13 +31,13 @@ const AttexIcon: FC<IconProps> = ({
         size={size}
         icon={
           <Image
-            alt='attexImage'
+            alt='aiforyImage'
             width={size === 'big' ? 40 : 30}
             height={size === 'big' ? 40 : 30}
             src={logo}
           />
         }
-        description={'Attex'}
+        description={'Aifory'}
         click={click}
         setClick={setClick}
       />
@@ -45,4 +45,4 @@ const AttexIcon: FC<IconProps> = ({
   );
 };
 
-export default AttexIcon;
+export default AiforyIcon;

@@ -39,7 +39,8 @@ const CVIcon: FC<CVIconProps> = ({
       {onOffMenu ? (
         <>
           <CVModal title={'CV'} open={open || false} onClose={() => setOpen?.(false)} />
-          <IconFileInfo color='#da6a00' />
+          <IconFileInfo color='black' />
+          {/* <IconFileInfo color='#da6a00' /> */}
           {t('CheckCV')}
         </>
       ) : (
@@ -55,7 +56,8 @@ const CVIcon: FC<CVIconProps> = ({
             search={search}
             showDescription={showDescription}
             size={size}
-            icon={<IconFileInfo size={size === 'big' ? 40 : 30} color='#da6a00' />}
+            icon={<IconFileInfo size={size === 'big' ? 40 : 30} color='black' />}
+            // icon={<IconFileInfo size={size === 'big' ? 40 : 30} color='#da6a00' />}
             description={t('CVLabel') || ''}
             click={click || ''}
             setClick={setClick}

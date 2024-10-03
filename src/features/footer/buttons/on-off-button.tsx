@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from 'react';
+import { FC, ReactNode, useCallback, useState } from 'react';
 import styled from '@emotion/styled';
 import FooterButtonWrapper from 'shared/footer-button-wrapper';
 import CVIcon from 'features/CV/icon';
@@ -12,6 +12,12 @@ interface OnOffButtonProps extends ClickProps {
 
 const OnOffButton: FC<OnOffButtonProps> = ({ click, setClick, turnOff }) => {
   const [open, setOpen] = useState(false);
+
+  const cb = useCallback(() => {
+    turnOff();
+    setClick('');
+  }, []);
+
   return (
     <>
       <RelativeWrapper>
@@ -25,14 +31,16 @@ const OnOffButton: FC<OnOffButtonProps> = ({ click, setClick, turnOff }) => {
           </ListItem>
           <ListItem
             clicked={click === 'onoffOFF'}
-            onClick={() => setClick('onoffOFF')}
-            onDoubleClick={turnOff}
+            onClick={cb}
+            // onClick={() => setClick('onoffOFF')}
+            // onDoubleClick={turnOff}
           >
             <OffSiteIcon />
           </ListItem>
         </List>
         <FooterButtonWrapper rightBorder onClick={() => setClick('onoff')}>
-          <IconInfoTriangle color='#da6a00' />
+          <IconInfoTriangle color='black' />
+          {/* <IconInfoTriangle color='#da6a00' /> */}
         </FooterButtonWrapper>
       </RelativeWrapper>
     </>
@@ -49,8 +57,10 @@ const List = styled.ul<{ opened: boolean }>`
   display: ${({ opened }) => (opened ? 'block' : 'none')};
   position: absolute;
 
-  background: #c9acce;
-  border: #da6a00 solid 3px;
+  background: white;
+  // background: #c9acce;
+  border: black solid 2px;
+  // border: #da6a00 solid 2px;
   border-radius: 4px;
   width: 305px;
   height: 300px;
@@ -67,7 +77,8 @@ const ListItem = styled.li<{ clicked: boolean; children: ReactNode }>`
     display: flex;
     align-items: center;
     padding: 8px 0px;
-    border-bottom: rgb(120 88 128 / 50%) solid 3px;
+    border-bottom: rgb(0 0 0 / 30%) solid 2px;
+    // border-bottom: rgb(120 88 128 / 50%) solid 2px;
     cursor: pointer;
   }
   > div > svg {
@@ -75,8 +86,8 @@ const ListItem = styled.li<{ clicked: boolean; children: ReactNode }>`
   }
 `;
 
-const Icon = styled.div`
-  background: #da6a00;
-  width: 24px;
-  height: 24px;
-`;
+// const Icon = styled.div`
+//   background: #da6a00;
+//   width: 24px;
+//   height: 24px;
+// `;

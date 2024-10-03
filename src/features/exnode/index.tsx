@@ -25,7 +25,8 @@ export default Exnode;
 const IframeWrapper = styled.div`
   position: relative;
   height: 100%;
-  background: #2d74ff;
+  background: white;
+  /* background: #2d74ff; */
   > div {
     border: none;
     width: 100%;

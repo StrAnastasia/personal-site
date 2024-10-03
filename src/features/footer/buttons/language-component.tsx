@@ -48,14 +48,17 @@ const OptionsWrapper = styled.div<{ open: boolean }>`
   position: absolute;
 
   width: 84px;
-  background: #c9acce;
-  border: #da6a00 3px solid;
+  background: white;
+  // background: #c9acce;
+  border: black 2px solid;
+  // border: #da6a00 2px solid;
   border-radius: 4px;
   padding: 12px 16px;
   top: -124px;
   left: -19px;
   > div {
     padding: 8px 0px;
-    border-bottom: #da6a00 3px solid;
+    border-bottom: rgb(0 0 0 / 30%) solid 2px;
+    // border-bottom: #da6a00 2px solid;
   }
 `;

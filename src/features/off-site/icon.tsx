@@ -7,7 +7,8 @@ const OffSiteIcon: FC = () => {
 
   return (
     <div>
-      <IconOctagonOff color='#da6a00' />
+      <IconOctagonOff color='black' />
+      {/* <IconOctagonOff color='#da6a00' /> */}
       {t('turnOff')}
     </div>
   );
